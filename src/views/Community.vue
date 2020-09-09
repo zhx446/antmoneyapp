@@ -2,24 +2,26 @@
 	<div class="community">
 		<!-- 搜索导航栏 -->
 		<div class="community-top">
-			<van-search class="top-nav" v-model="value" show-action shape="round" background="#2671FE" placeholder="问答/看点/用户/股票/基金">
-				<template #action>
-					<van-icon name="chat-o" size="large" color="#fff" class="community-top-icon" />
-				</template>
-			</van-search>
-
+			<div class="nav-module">
+				<van-search class="top-nav" v-model="value" show-action shape="round" background="#2671FE" placeholder="问答/看点/用户/股票/基金">
+					<template #action>
+						<van-icon name="chat-o" size="large" color="#fff" class="community-top-icon" />
+					</template>
+				</van-search>
+			</div>
+		</div>
+		<!-- 文章模块 -->
+		<div class="community-content">
 			<van-grid :border="false">
 				<van-grid-item icon="photo-o" text="大咖" />
 				<van-grid-item icon="photo-o" text="专栏" />
 				<van-grid-item icon="photo-o" text="看点" />
 				<van-grid-item icon="photo-o" text="短视频" />
 			</van-grid>
-		</div>
-		<!-- 文章模块 -->
-		<div class="community-content">
-			<!-- 导航 -->
-			<van-tabs v-model="articleActive" title-active-color="#000" title-inactive-color="#B8B8B8" :swipeable="true"
-			animated color="#2671FE" class="article-nav">
+			<!-- 标签导航 -->
+			<van-tabs v-model="articleActive" :sticky="true" offset-top="65px" title-active-color="#000" title-inactive-color="#B8B8B8"
+			:swipeable="true" animated color="#2671FE">
+				<!-- 热门模块 -->
 				<van-tab title="热门" title-style="font-weight:600;">
 					<div class="article-module" v-for="item in articles" :key="item.id">
 						<div class="writer-module">
@@ -48,10 +50,29 @@
 						</div>
 					</div>
 				</van-tab>
-				<van-tab title="讨论区" title-style="font-weight:600" :dot="true">内容 2</van-tab>
+				<!-- 讨论区模块 -->
+				<van-tab title="讨论区" title-style="font-weight:600" :dot="true">
+					<div class="discuss-module">
+						<div class="my-discuss">
+							<div class="my-discuss-top">
+								<div>我的讨论区</div>
+								<div>
+									<span>自选&持有</span>
+									<van-icon name="arrow" />
+								</div>
+							</div>
+							<div class="my-discuss-bottom">
+								<van-image width="110px" height="80px" fit="contain" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+								<div class="my-discuss-bottom-right">
+									<div>上证指数讨论区</div>
+									<div><span>[99+条]</span>崩盘了，大家散了吧</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</van-tab>
 				<van-tab title="关注" title-style="font-weight:600">内容 3</van-tab>
 			</van-tabs>
-
 		</div>
 	</div>
 </template>
@@ -106,6 +127,13 @@
 		line-height: 37.6px;
 	}
 
+	.nav-module {
+		width: 100%;
+		position: fixed;
+		top: 0;
+		z-index: 1;
+	}
+
 	/*********************** 搜索导航栏 end ***********************/
 
 	/*********************** 文章模块 start ***********************/
@@ -114,7 +142,10 @@
 		flex-direction: column;
 		justify-content: center;
 		margin-bottom: 85px;
+		margin-top: 65px;
 	}
+
+	/*********** 热门 start ***********/
 
 	.article-module {
 		display: flex;
@@ -198,6 +229,78 @@
 		color: #505050;
 		width: 30%;
 	}
+
+	/*********** 热门 end ***********/
+
+	/*********** 讨论区 start ***********/
+	.discuss-module {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		border-bottom: 10px solid #F5F6F6;
+	}
+	
+	.my-discuss {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 15px 10px;
+	}
+	
+	.my-discuss-top {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	
+	.my-discuss-bottom {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin: 9px 0;
+	}
+	
+	.my-discuss-top div:first-child {
+		font-size: 16px;
+		color: #3A3B3B;
+		font-weight: 600;
+	}
+	
+	.my-discuss-top div:last-child {
+		font-size: 16px;
+		color: #C0C1C1;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	
+	.my-discuss-bottom-right {
+		text-align: left;
+		margin-right: 50px;
+		line-height: 27px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	
+	.my-discuss-bottom-right div:first-child {
+		font-size: 17px;
+		color: #3A3B3B;
+		font-weight: 600;
+	}
+	
+	.my-discuss-bottom-right div:last-child {
+		font-size: 15px;
+		color: #B4B4B4;
+	}
+	
+	.my-discuss-bottom-right div:last-child span {
+		color: #F2C459;
+	}
+	
+	/*********** 讨论区 end ***********/
 
 	/*********************** 文章模块 end ***********************/
 </style>
