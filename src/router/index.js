@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Find from '../views/Find.vue'
 import Fund from '../views/Fund.vue'
+import Optional from '../views/Optional.vue'
+import Stock from '../components/Stock.vue'
 
 Vue.use(VueRouter)
 
@@ -11,16 +13,21 @@ const routes = [{
 		component: Find
 	},
 	{
-		path: '/optional',
+		path: '/optional/:id',
 		name: 'Optional',
-		component: () => import('../views/Optional.vue'),
+		component: Optional,
+		// component: () => import('../views/Optional.vue'),
 		children: [{
 			// 当 /user/:id/profile 匹配成功，
 			// UserProfile 会被渲染在 User 的 <router-view> 中
 			path: 'fund',
-			name: 'Fund',
 			component: Fund
-		}]
+		},
+		{
+			path: 'stock',
+			component: Stock
+		}
+		]
 	},
 	{
 		path: '/community',
