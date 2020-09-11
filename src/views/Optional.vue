@@ -5,8 +5,8 @@
 				<div>市场</div>
 				<div>
 					<van-tabs type="card" v-model="activeTab">
-						<van-tab title="股票" to="/optional/cut/stock"></van-tab>
-						<van-tab title="基金" to="/optional/cut/fund"></van-tab>
+						<van-tab title="股票" to="/optional/stock"></van-tab>
+						<van-tab title="基金" to="/optional/fund"></van-tab>
 					</van-tabs>
 				</div>
 				<div>
@@ -23,39 +23,8 @@
 	export default {
 		data() {
 			return {
-				activeTab:0,
-				optionalStock: [{
-						stockName: '农夫山泉',
-						address: '09633.HK',
-						stockPirce: '33.200',
-						stockIncrease: '+0.30%'
-					},
-					{
-						stockName: '农夫山泉',
-						address: '09633.HK',
-						stockPirce: '33.200',
-						stockIncrease: '+0.30%'
-					},
-					{
-						stockName: '农夫山泉',
-						address: '09633.HK',
-						stockPirce: '33.200',
-						stockIncrease: '+0.30%'
-					},
-					{
-						stockName: '农夫山泉',
-						address: '09633.HK',
-						stockPirce: '33.200',
-						stockIncrease: '+0.30%'
-					},
-					{
-						stockName: '农夫山泉',
-						address: '09633.HK',
-						stockPirce: '33.200',
-						stockIncrease: '+0.30%'
-					}
-				]
-			};
+				activeTab:0
+			}
 		}
 
 	};

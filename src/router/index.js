@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Find from '../views/Find.vue'
-import Fund from '../views/Fund.vue'
 import Optional from '../views/Optional.vue'
+import Fund from '../components/Fund.vue'
 import Stock from '../components/Stock.vue'
 
 Vue.use(VueRouter)
@@ -13,20 +13,21 @@ const routes = [{
 		component: Find
 	},
 	{
-		path: '/optional/:id',
+		path: '/optional', //主路由
 		name: 'Optional',
+		redirect: "/optional/stock", //重定向到第一个子路由
 		component: Optional,
-		// component: () => import('../views/Optional.vue'),
+		// 注意：
+		// 主路由使用"redirect"重定向到第一个子路由，实现点击父级进入第一个子路由；
+		// 所有子路由都要加上主路由
 		children: [{
-			// 当 /user/:id/profile 匹配成功，
-			// UserProfile 会被渲染在 User 的 <router-view> 中
-			path: 'fund',
-			component: Fund
-		},
-		{
-			path: 'stock',
-			component: Stock
-		}
+				path: '/optional/fund', //子路由
+				component: Fund
+			},
+			{
+				path: '/optional/stock', //子路由
+				component: Stock
+			}
 		]
 	},
 	{
