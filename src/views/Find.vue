@@ -8,7 +8,5 @@
 </script>
 
 <style>
-	.find {
-		color: red;
-	}
+
 </style>

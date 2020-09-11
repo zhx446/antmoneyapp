@@ -4,7 +4,7 @@
 			<div class="optional-nav">
 				<div>市场</div>
 				<div>
-					<van-tabs type="card" v-model="activeTab">
+					<van-tabs type="card">
 						<van-tab title="股票" to="/optional/stock"></van-tab>
 						<van-tab title="基金" to="/optional/fund"></van-tab>
 					</van-tabs>
@@ -23,7 +23,7 @@
 	export default {
 		data() {
 			return {
-				activeTab:0
+				
 			}
 		}
 
