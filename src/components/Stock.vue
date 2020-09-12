@@ -96,6 +96,7 @@
 	.optional-content {
 		font-size: 21px;
 		font-weight: bold;
+		margin: 0 10px;
 	}
 	
 	.optional-increase {
