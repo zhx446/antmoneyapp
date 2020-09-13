@@ -1,13 +1,13 @@
 <template>
 	<div id="app">
 		<div class="tab">
-			<app-tabbar></app-tabbar>
+			<!-- <app-tabbar></app-tabbar> -->
 		</div>
 		<router-view />
 	</div>
 </template>
 <script>
-	import AppTabbar from '@/components/AppTabbar.vue'
+	// import AppTabbar from '@/components/AppTabbar.vue'
 	export default {
 		
 		data() {
@@ -16,7 +16,7 @@
 			}
 		},
 		components:{
-			AppTabbar
+			// AppTabbar
 		},
 		methods:{
 			

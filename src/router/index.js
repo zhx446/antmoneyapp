@@ -8,7 +8,7 @@ import Stock from '../components/Stock.vue'
 Vue.use(VueRouter)
 
 const routes = [{
-		path: '/',
+		path: '/find',
 		name: 'Find',
 		component: Find
 	},
@@ -41,9 +41,14 @@ const routes = [{
 		component: () => import('../views/Asset.vue')
 	},
 	{
-		path: '/login',
+		path: '/',
 		name: 'Login',
 		component: () => import('../views/Login.vue')
+	},
+	{
+		path: '/search',
+		name: 'Search',
+		component: () => import('../views/Search.vue')
 	}
 ]
 

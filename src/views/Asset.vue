@@ -26,6 +26,8 @@
 						</div>
 					</template>
 				</van-cell>
+				<!-- <van-button type="primary" size="large">登录</van-button> -->
+				
 				<van-cell value="内容" icon="balance-pay" size="large" label="描述信息" class="user-content-bottom">
 					<template #default>
 						<span class="tip-text">理财有风险，入市需谨慎</span>
@@ -35,8 +37,6 @@
 					</template>
 				</van-cell>
 			</div>
-			<!-- <van-button type="primary" to="/login">登录</van-button> -->
-
 			<!-- 我的资产 -->
 			<div class="my-assets">
 				<van-cell-group :border="false">
@@ -134,42 +134,55 @@
 				<van-cell-group>
 					<van-cell title="账单" size="large" icon="location-o" title-class="bill">
 						<template #right-icon>
-							<van-icon name="arrow" color="#D3D3D3"/>
+							<van-icon name="arrow" color="#D3D3D3" />
 						</template>
-					</van-cell>				
+					</van-cell>
 					<van-cell title="银行卡" size="large" icon="location-o" title-class="bill">
 						<template #right-icon>
-							<van-icon name="arrow" color="#D3D3D3"/>
+							<van-icon name="arrow" color="#D3D3D3" />
 						</template>
 					</van-cell>
 					<van-cell title="劵包" size="large" icon="location-o" title-class="bill">
 						<template #right-icon>
-							<van-icon name="arrow" color="#D3D3D3"/>
+							<van-icon name="arrow" color="#D3D3D3" />
 						</template>
 					</van-cell>
 					<van-cell title="活动" size="large" icon="location-o" title-class="bill">
 						<template #right-icon>
-							<van-icon name="arrow" color="#D3D3D3"/>
+							<van-icon name="arrow" color="#D3D3D3" />
 						</template>
 					</van-cell>
 				</van-cell-group>
 			</div>
-			
+
 			<!-- 借呗 -->
 			<div class="my-borrow">
 				<van-cell-group>
 					<van-cell title="借呗" size="large" icon="location-o" title-class="bill">
 						<template #right-icon>
-							<van-icon name="arrow" color="#D3D3D3"/>
+							<van-icon name="arrow" color="#D3D3D3" />
 						</template>
-					</van-cell>				
+					</van-cell>
 				</van-cell-group>
 			</div>
 		</div>
+		<app-tabbar></app-tabbar>
 	</div>
 </template>
 
-<script></script>
+<script>
+	import AppTabbar from '@/components/AppTabbar.vue'
+	export default {
+		data() {
+			return {
+				// loginIs: false
+			}
+		},
+		components:{
+			AppTabbar
+		}
+	}
+</script>
 
 <style>
 	/*********************** 用户信息顶部 start ***********************/
@@ -366,8 +379,9 @@
 		text-align: left;
 		font-weight: bold;
 	}
+
 	/*********************** 账单 end ***********************/
-	
+
 	/*********************** 借呗 start ***********************/
 	.my-borrow {
 		background-color: #fff;
@@ -377,6 +391,6 @@
 		overflow: hidden;
 		padding-bottom: 60px;
 	}
-	
+
 	/*********************** 借呗 end ***********************/
 </style>

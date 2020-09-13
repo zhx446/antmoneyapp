@@ -9,6 +9,7 @@
 			<van-field size="large" :border="false" v-model="value2" clearable label="密码" type="password" right-icon="closed-eye"
 			placeholder="请输入登录密码" />
 		</van-cell-group>
+		<van-button round type="info" to="/find" size="large" class="login-btn">登录</van-button>
 	</div>
 </template>
 
@@ -17,7 +18,7 @@
 		data() {
 			return {
 				value1: '',
-				value2: '123'
+				value2: ''
 			};
 		},
 		methods: {
@@ -43,5 +44,11 @@
 
 	.login .user-field {
 		border: 0px;
+	}
+	
+	.login-btn {
+		width: 200px;
+		margin-top: 40px;
+		background-color: #07C160;
 	}
 </style>

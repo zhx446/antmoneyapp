@@ -17,15 +17,20 @@
 			</div>
 			<router-view></router-view>
 		</div>
+		<app-tabbar></app-tabbar>
 	</div>
 </template>
 
 <script>
+	import AppTabbar from '@/components/AppTabbar.vue'
 	export default {
 		data() {
 			return {
 
 			}
+		},
+		components:{
+			AppTabbar
 		}
 
 	};

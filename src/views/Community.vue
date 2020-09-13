@@ -19,7 +19,8 @@
 				<van-grid-item icon="photo-o" text="短视频" />
 			</van-grid>
 			<!-- 标签导航 -->
-			<van-tabs v-model="articleActive" :sticky="true" offset-top="65px" title-active-color="#000" title-inactive-color="#B8B8B8" :swipeable="true" animated color="#2671FE">
+			<van-tabs v-model="articleActive" :sticky="true" offset-top="65px" title-active-color="#000" title-inactive-color="#B8B8B8"
+			:swipeable="true" animated color="#2671FE">
 				<!-- 热门模块 -->
 				<van-tab title="热门" title-style="font-weight:600;">
 					<div class="article-module" v-for="item in articles" :key="item.id">
@@ -94,263 +95,266 @@
 				<van-tab title="关注" title-style="font-weight:600">内容 3</van-tab>
 			</van-tabs>
 		</div>
+		<app-tabbar></app-tabbar>
 	</div>
 </template>
 
 <script>
-export default {
-	data() {
-		return {
-			value: '',
-			articleActive: 0,
-			articles: [
-				{
-					writerName: '周海欣',
-					articleTitle: '9.8：科技和周期板块的打分贴',
-					contentText: '如预想的那样，今天还是在调整的，虽然目前看，大盘已经翻红了，貌似数据还挺不错的。',
-					articleTime: '10分钟前',
-					likeNum: 1000,
-					commentNum: 222
-				},
-				{
-					writerName: '周海欣',
-					articleTitle: '9.8：科技和周期板块的打分贴',
-					contentText: '如预想的那样，今天还是在调整的，虽然目前看，大盘已经翻红了，貌似数据还挺不错的。',
-					articleTime: '10分钟前',
-					likeNum: 1000,
-					commentNum: 222
-				},
-				{
-					writerName: '周海欣',
-					articleTitle: '9.8：科技和周期板块的打分贴',
-					contentText: '如预想的那样，今天还是在调整的，虽然目前看，大盘已经翻红了，貌似数据还挺不错的。',
-					articleTime: '10分钟前',
-					likeNum: 1000,
-					commentNum: 222
-				}
-			],
-			wealthList: [
-				{
-					wealthImg: 'https://img.yzcdn.cn/vant/cat.jpeg',
-					wealthTitle: '黄龙大讲堂小组',
-					wealthText: '坚决看空，神机先看到3200'
-				},
-				{
-					wealthImg: 'https://img.yzcdn.cn/vant/cat.jpeg',
-					wealthTitle: '黄龙大讲堂小组',
-					wealthText: '坚决看空，神机先看到3200'
-				},
-				{
-					wealthImg: 'https://img.yzcdn.cn/vant/cat.jpeg',
-					wealthTitle: '黄龙大讲堂小组',
-					wealthText: '坚决看空，神机先看到3200'
-				},
-				{
-					wealthImg: 'https://img.yzcdn.cn/vant/cat.jpeg',
-					wealthTitle: '黄龙大讲堂小组',
-					wealthText: '坚决看空，神机先看到3200'
-				}
-			]
-		};
-	},
-};
+	import AppTabbar from '@/components/AppTabbar.vue'
+	export default {
+		data() {
+			return {
+				value: '',
+				articleActive: 0,
+				articles: [{
+						writerName: '周海欣',
+						articleTitle: '9.8：科技和周期板块的打分贴',
+						contentText: '如预想的那样，今天还是在调整的，虽然目前看，大盘已经翻红了，貌似数据还挺不错的。',
+						articleTime: '10分钟前',
+						likeNum: 1000,
+						commentNum: 222
+					},
+					{
+						writerName: '周海欣',
+						articleTitle: '9.8：科技和周期板块的打分贴',
+						contentText: '如预想的那样，今天还是在调整的，虽然目前看，大盘已经翻红了，貌似数据还挺不错的。',
+						articleTime: '10分钟前',
+						likeNum: 1000,
+						commentNum: 222
+					},
+					{
+						writerName: '周海欣',
+						articleTitle: '9.8：科技和周期板块的打分贴',
+						contentText: '如预想的那样，今天还是在调整的，虽然目前看，大盘已经翻红了，貌似数据还挺不错的。',
+						articleTime: '10分钟前',
+						likeNum: 1000,
+						commentNum: 222
+					}
+				],
+				wealthList: [{
+						wealthImg: 'https://img.yzcdn.cn/vant/cat.jpeg',
+						wealthTitle: '黄龙大讲堂小组',
+						wealthText: '坚决看空，神机先看到3200'
+					},
+					{
+						wealthImg: 'https://img.yzcdn.cn/vant/cat.jpeg',
+						wealthTitle: '黄龙大讲堂小组',
+						wealthText: '坚决看空，神机先看到3200'
+					},
+					{
+						wealthImg: 'https://img.yzcdn.cn/vant/cat.jpeg',
+						wealthTitle: '黄龙大讲堂小组',
+						wealthText: '坚决看空，神机先看到3200'
+					},
+					{
+						wealthImg: 'https://img.yzcdn.cn/vant/cat.jpeg',
+						wealthTitle: '黄龙大讲堂小组',
+						wealthText: '坚决看空，神机先看到3200'
+					}
+				]
+			};
+		},
+		components: {
+			AppTabbar
+		}
+	};
 </script>
 
 <style>
-/*********************** 搜索导航栏 start ***********************/
-.top-nav {
-	padding-top: 15px;
-}
+	/*********************** 搜索导航栏 start ***********************/
+	.top-nav {
+		padding-top: 15px;
+	}
 
-.community-top-icon {
-	line-height: 37.6px;
-}
+	.community-top-icon {
+		line-height: 37.6px;
+	}
 
-.nav-module {
-	width: 100%;
-	position: fixed;
-	top: 0;
-	z-index: 1;
-}
+	.nav-module {
+		width: 100%;
+		position: fixed;
+		top: 0;
+		z-index: 1;
+	}
 
-/*********************** 搜索导航栏 end ***********************/
+	/*********************** 搜索导航栏 end ***********************/
 
-/*********************** 文章模块 start ***********************/
-.community-content {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin-bottom: 85px;
-	margin-top: 65px;
-}
+	/*********************** 文章模块 start ***********************/
+	.community-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-bottom: 85px;
+		margin-top: 65px;
+	}
 
-/*********** 热门 start ***********/
+	/*********** 热门 start ***********/
 
-.article-module {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	border-bottom: 8px solid #f6f5fb;
-	padding-bottom: 12px;
-}
+	.article-module {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		border-bottom: 8px solid #f6f5fb;
+		padding-bottom: 12px;
+	}
 
-.writer-module {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	margin: 18px 10px;
-}
+	.writer-module {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin: 18px 10px;
+	}
 
-.writer-info {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-}
+	.writer-info {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
 
-.writer-info span {
-	font-size: 16px;
-	font-weight: bold;
-	margin-left: 8px;
-}
+	.writer-info span {
+		font-size: 16px;
+		font-weight: bold;
+		margin-left: 8px;
+	}
 
-.attention {
-	background-color: #ecf7fe;
-	color: #5dadcc;
-	font-size: 13px;
-	width: 35px;
-	height: 25px;
-	padding: 0px 10px;
-	border-radius: 4px;
-	line-height: 25px;
-}
+	.attention {
+		background-color: #ecf7fe;
+		color: #5dadcc;
+		font-size: 13px;
+		width: 35px;
+		height: 25px;
+		padding: 0px 10px;
+		border-radius: 4px;
+		line-height: 25px;
+	}
 
-.article-content {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
+	.article-content {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
 
-.article-title {
-	font-size: 20px;
-	font-weight: bold;
-	text-align: left;
-	margin-left: 8px;
-	margin-bottom: 12px;
-}
+	.article-title {
+		font-size: 20px;
+		font-weight: bold;
+		text-align: left;
+		margin-left: 8px;
+		margin-bottom: 12px;
+	}
 
-.article-content-text {
-	font-size: 16px;
-	text-align: left;
-	margin-left: 10px;
-	width: 100%;
-}
+	.article-content-text {
+		font-size: 16px;
+		text-align: left;
+		margin-left: 10px;
+		width: 100%;
+	}
 
-.article-info {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	margin: 8px 8px;
-}
+	.article-info {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin: 8px 8px;
+	}
 
-.article-info div:first-child {
-	font-size: 13px;
-	color: #bbbbbb;
-}
+	.article-info div:first-child {
+		font-size: 13px;
+		color: #bbbbbb;
+	}
 
-.article-info div:last-child {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
-	font-size: 14px;
-	color: #505050;
-	width: 30%;
-}
+	.article-info div:last-child {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		font-size: 14px;
+		color: #505050;
+		width: 30%;
+	}
 
-/*********** 热门 end ***********/
+	/*********** 热门 end ***********/
 
-/*********** 讨论区 start ***********/
-.discuss-module {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	/* border-bottom: 10px solid #f5f6f6; */
-}
+	/*********** 讨论区 start ***********/
+	.discuss-module {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		/* border-bottom: 10px solid #f5f6f6; */
+	}
 
-.my-discuss {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: 15px 10px;
-}
+	.my-discuss {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 15px 10px;
+	}
 
-.my-discuss-top {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-}
+	.my-discuss-top {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
 
-.my-discuss-bottom {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	margin: 9px 0;
-}
+	.my-discuss-bottom {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin: 9px 0;
+	}
 
-.my-discuss-top div:first-child {
-	font-size: 16px;
-	color: #3a3b3b;
-	font-weight: 600;
-}
+	.my-discuss-top div:first-child {
+		font-size: 16px;
+		color: #3a3b3b;
+		font-weight: 600;
+	}
 
-.my-discuss-top div:last-child {
-	font-size: 16px;
-	color: #c0c1c1;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-}
+	.my-discuss-top div:last-child {
+		font-size: 16px;
+		color: #c0c1c1;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
 
-.my-discuss-bottom-right {
-	text-align: left;
-	margin-right: 50px;
-	line-height: 27px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
+	.my-discuss-bottom-right {
+		text-align: left;
+		margin-right: 50px;
+		line-height: 27px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
 
-.my-discuss-bottom-right div:first-child {
-	font-size: 17px;
-	color: #3a3b3b;
-	font-weight: 600;
-}
+	.my-discuss-bottom-right div:first-child {
+		font-size: 17px;
+		color: #3a3b3b;
+		font-weight: 600;
+	}
 
-.my-discuss-bottom-right div:last-child {
-	font-size: 15px;
-	color: #b4b4b4;
-}
+	.my-discuss-bottom-right div:last-child {
+		font-size: 15px;
+		color: #b4b4b4;
+	}
 
-.my-discuss-bottom-right div:last-child span {
-	color: #f2c459;
-}
+	.my-discuss-bottom-right div:last-child span {
+		color: #f2c459;
+	}
 
-.wealth-team {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: 8px 10px;
-}
+	.wealth-team {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 8px 10px;
+	}
 
-.my-wealt-bottom {
-	margin: 15px 0 5px;
-}
+	.my-wealt-bottom {
+		margin: 15px 0 5px;
+	}
 
-/*********** 讨论区 end ***********/
+	/*********** 讨论区 end ***********/
 
-/*********************** 文章模块 end ***********************/
+	/*********************** 文章模块 end ***********************/
 </style>

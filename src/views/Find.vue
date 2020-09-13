@@ -5,7 +5,7 @@
 			<div class="find-nav-search">
 				<van-search v-model="value" background="#188AFA" shape="round" show-action placeholder="我能帮你诊断风险">
 					<template #action>
-						<div class="find-nav-right">搜索</div>
+						<div class="find-nav-right" @click="onSearch">搜索</div>
 					</template>
 				</van-search>
 			</div>
@@ -31,14 +31,166 @@
 				</div>
 			</div>
 		</div>
-
+		<!-- 滚动导航栏 -->
+		<div class="sroll-nav">
+			<van-tabs v-model="active" :swipeable="true" title-active-color="#316CF9" color="#316CF9">
+				<!-- <van-tab :title="item.navTitle" v-for="item in srollNav" :key="item.id"> -->
+				<van-tab title="投资顺风车">
+					<div class="sroll-card">
+						<div class="sroll-card-title">内需消费</div>
+						<div class="card">
+							<div class="card-left">
+								<div>投资潜力</div>
+								<div class="card-text">富国消费主题混合</div>
+								<div class="card-text-2">投资机会，就在你身边</div>
+								<div>
+									<van-tag plain type="primary" class="card-tag">消费旺季</van-tag>
+									<van-tag plain type="primary" class="card-tag">聚焦龙头</van-tag>
+								</div>
+							</div>
+							<div class="card-right">
+								10元上车
+							</div>
+						</div>
+						<div class="sroll-card-bottom">
+							<van-icon name="balance-list-o" size="17" />
+							<div>选品还要看配置，来看看【三笔钱】</div>
+							<van-icon name="arrow" />
+						</div>
+					</div>
+				</van-tab>
+				<van-tab title="攒点金子">
+					<div class="sroll-card" style="background-color: #FDF4D5;">
+						<div class="sroll-card-title">内需消费</div>
+						<div class="card">
+							<div class="card-left">
+								<div>投资潜力</div>
+								<div class="card-text">富国消费主题混合</div>
+								<div class="card-text-2">投资机会，就在你身边</div>
+								<div>
+									<van-tag plain type="primary" class="card-tag">消费旺季</van-tag>
+									<van-tag plain type="primary" class="card-tag">聚焦龙头</van-tag>
+								</div>
+							</div>
+							<div class="card-right">
+								10元上车
+							</div>
+						</div>
+						<div class="sroll-card-bottom">
+							<van-icon name="balance-list-o" size="17" />
+							<div>选品还要看配置，来看看【三笔钱】</div>
+							<van-icon name="arrow" />
+						</div>
+					</div>
+				</van-tab>
+				<van-tab title="稳健理财">
+					<div class="sroll-card" style="background-color: #DBF0FE;">
+						<div class="sroll-card-title">内需消费</div>
+						<div class="card">
+							<div class="card-left">
+								<div>投资潜力</div>
+								<div class="card-text">富国消费主题混合</div>
+								<div class="card-text-2">投资机会，就在你身边</div>
+								<div>
+									<van-tag plain type="primary" class="card-tag">消费旺季</van-tag>
+									<van-tag plain type="primary" class="card-tag">聚焦龙头</van-tag>
+								</div>
+							</div>
+							<div class="card-right">
+								10元上车
+							</div>
+						</div>
+						<div class="sroll-card-bottom">
+							<van-icon name="balance-list-o" size="17" />
+							<div>选品还要看配置，来看看【三笔钱】</div>
+							<van-icon name="arrow" />
+						</div>
+					</div>
+				</van-tab>
+				<van-tab title="精选组合">
+					<div class="sroll-card" style="background-color: #F7E2F3;">
+						<div class="sroll-card-title">内需消费</div>
+						<div class="card">
+							<div class="card-left">
+								<div>投资潜力</div>
+								<div class="card-text">富国消费主题混合</div>
+								<div class="card-text-2">投资机会，就在你身边</div>
+								<div>
+									<van-tag plain type="primary" class="card-tag">消费旺季</van-tag>
+									<van-tag plain type="primary" class="card-tag">聚焦龙头</van-tag>
+								</div>
+							</div>
+							<div class="card-right">
+								10元上车
+							</div>
+						</div>
+						<div class="sroll-card-bottom">
+							<van-icon name="balance-list-o" size="17" />
+							<div>选品还要看配置，来看看【三笔钱】</div>
+							<van-icon name="arrow" />
+						</div>
+					</div>
+				</van-tab>
+				<van-tab title="保险优选">
+					<div class="sroll-card" style="background-color: #D2E2FC;">
+						<div class="sroll-card-title">内需消费</div>
+						<div class="card">
+							<div class="card-left">
+								<div>投资潜力</div>
+								<div class="card-text">富国消费主题混合</div>
+								<div class="card-text-2">投资机会，就在你身边</div>
+								<div>
+									<van-tag plain type="primary" class="card-tag">消费旺季</van-tag>
+									<van-tag plain type="primary" class="card-tag">聚焦龙头</van-tag>
+								</div>
+							</div>
+							<div class="card-right">
+								10元上车
+							</div>
+						</div>
+						<div class="sroll-card-bottom">
+							<van-icon name="balance-list-o" size="17" />
+							<div>选品还要看配置，来看看【三笔钱】</div>
+							<van-icon name="arrow" />
+						</div>
+					</div>
+				</van-tab>
+				<van-tab title="进攻优势">
+					<div class="sroll-card" style="background-color: #D2E2FC;">
+						<div class="sroll-card-title">内需消费</div>
+						<div class="card">
+							<div class="card-left">
+								<div>投资潜力</div>
+								<div class="card-text">富国消费主题混合</div>
+								<div class="card-text-2">投资机会，就在你身边</div>
+								<div>
+									<van-tag plain type="primary" class="card-tag">消费旺季</van-tag>
+									<van-tag plain type="primary" class="card-tag">聚焦龙头</van-tag>
+								</div>
+							</div>
+							<div class="card-right">
+								10元上车
+							</div>
+						</div>
+						<div class="sroll-card-bottom">
+							<van-icon name="balance-list-o" size="17" />
+							<div>选品还要看配置，来看看【三笔钱】</div>
+							<van-icon name="arrow" />
+						</div>
+					</div>
+				</van-tab>
+			</van-tabs>
+		</div>
+		<app-tabbar></app-tabbar>
 	</div>
 </template>
 
 <script>
+	import AppTabbar from '@/components/AppTabbar.vue'
 	export default {
 		data() {
 			return {
+				active: 0,
 				value: '',
 				navList: [{
 						iconText: '余额宝'
@@ -67,13 +219,31 @@
 					{
 						iconText: '帮你投'
 					}
-				]
+				],
+				// srollNav: [{
+				// 		navTitle: '投资顺风车'
+				// 	}, {
+				// 		navTitle: '攒点金子'
+				// 	},
+				// 	{
+				// 		navTitle: '稳健理财'
+				// 	}, {
+				// 		navTitle: '精选组合'
+				// 	}, {
+				// 		navTitle: '保险优选'
+				// 	}, {
+				// 		navTitle: '进攻优选'
+				// 	}
+				// ]
 			};
 		},
 		methods: {
-			// onSearch(val) {
-			// 	// Toast(val);
-			// }
+			onSearch() {
+				this.$router.push('/search')
+			}
+		},
+		components:{
+			AppTabbar
 		}
 	};
 </script>
@@ -96,14 +266,14 @@
 		box-shadow: 0px 3px 5px 1px #F3F4F6;
 		overflow: hidden;
 	}
-	
+
 	.fund-flex {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		font-size: 14px;
 	}
-	
+
 	.fund-top {
 		display: flex;
 		flex-direction: row;
@@ -112,7 +282,7 @@
 		padding: 12px 0;
 		font-size: 14px;
 	}
-	
+
 	.fund-bottom {
 		display: flex;
 		flex-direction: row;
@@ -121,19 +291,110 @@
 		background-color: #F8F8F8;
 		padding: 12px 0;
 	}
-	
+
 	.text-bold {
 		font-weight: bold;
 	}
-	
+
 	.text-color {
 		color: #DB8C85;
 		font-weight: bold;
 	}
-	
+
 	.fund-bottom div {
 		color: #5CAAED;
 	}
 
 	/*********************** 顶部导航栏 end ***********************/
+
+
+	/*********************** 滚动导航栏 start ***********************/
+	.sroll-nav {
+		margin-top: 200px;
+	}
+
+	.sroll-card {
+		background-color: #69A2FF;
+		height: 220px;
+		width: 300px;
+		margin: 0 auto;
+		border-radius: 5px;
+		text-align: left;
+		padding: 10px;
+		margin-top: 15px;
+	}
+
+	.sroll-card-title {
+		font-size: 16px;
+		color: #fff;
+		margin-bottom: 10px;
+		font-weight: bold;
+	}
+
+	.card {
+		background-color: #fff;
+		border-radius: 5px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding-right: 10px;
+	}
+
+	.card-left div:first-child {
+		color: #FCC713;
+		font-size: 16px;
+		padding: 8px;
+		border-bottom: 1px solid #F8F7F7;
+		font-weight: bold;
+	}
+
+	.card-text {
+		font-size: 14px;
+		color: #000;
+		font-weight: bold;
+		padding: 8px;
+	}
+
+	.card-text-2 {
+		color: #939393;
+		padding: 0 8px 12px;
+		font-size: 12px;
+	}
+
+	.card-left div:last-child {
+		padding: 0 0 15px;
+	}
+
+	.card-tag {
+		margin-left: 8px;
+	}
+
+	.sroll-card-bottom {
+		background-color: #B6D6FD;
+		color: #5F8ADA;
+		border-radius: 40px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 12px;
+		padding: 5px 5px;
+		margin: 9px 0;
+	}
+
+	.card-right {
+		width: 100px;
+		height: 30px;
+		background-color: #2071FA;
+		color: #fff;
+		border-radius: 30px;
+		text-align: center;
+		line-height: 30px;
+		font-size: 13px;
+		margin-top: 30px;
+	}
+
+
+	/*********************** 滚动导航栏 end ***********************/
 </style>
