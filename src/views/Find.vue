@@ -10,21 +10,26 @@
 				</van-search>
 			</div>
 			<div class="find-nav-icon">
-				<van-grid :column-num="5" :border="false">
-					<van-grid-item v-for="value in navList" :key="value" icon="photo-o" :text="value.iconText" />
-				</van-grid>
+				<van-grid :column-num="5" :border="false"><van-grid-item v-for="value in navList" :key="value.id" icon="photo-o" :text="value.iconText" /></van-grid>
 			</div>
 			<div class="find-nav-icon fund-flex">
-				<div class="fund-top">
-					<div class="text-bold">A股</div>|
-					<div class="text-bold">创业板指</div>
-					<div class="text-color">2536.62</div>
-					<div class="text-color">+53.59</div>
-					<div class="text-color">+2.16%</div>
-					<van-tag type="primary" color="#F1F1F1" text-color="#B9B9B9">周末休市</van-tag>
+				<div>
+					<van-notice-bar background="#fff" :scrollable="false" class="find-notice">
+						<van-swipe vertical class="notice-swipe" :autoplay="3000" :show-indicators="false">
+							<van-swipe-item class="fund-top" v-for="item in noticeSwipe" :key="item.id">
+								<div class="text-bold">{{item.stock}}</div>
+								<div class="text-bold">|</div>
+								<div class="text-bold">{{item.title}}</div>
+								<div class="text-color text-margin">{{item.stockNum}}</div>
+								<div class="text-color ">{{item.stockNum2}}</div>
+								<div class="text-color text-margin">{{item.stockNum3}}</div>
+								<van-tag type="primary" color="#F1F1F1" text-color="#B9B9B9">{{item.stockTag}}</van-tag>
+							</van-swipe-item>
+						</van-swipe>
+					</van-notice-bar>
 				</div>
 				<div class="fund-bottom">
-					<van-tag type="primary" color="#F95027" :round="true">标签</van-tag>
+					<van-tag type="primary" color="#F95027" :round="true">热点</van-tag>
 					<div>#楼市调控</div>
 					<div>#特拉斯出口</div>
 					<div>#8月金融数据</div>
@@ -48,9 +53,7 @@
 									<van-tag plain type="primary" class="card-tag">聚焦龙头</van-tag>
 								</div>
 							</div>
-							<div class="card-right">
-								10元上车
-							</div>
+							<div class="card-right">10元上车</div>
 						</div>
 						<div class="sroll-card-bottom">
 							<van-icon name="balance-list-o" size="17" />
@@ -72,9 +75,7 @@
 									<van-tag plain type="primary" class="card-tag">聚焦龙头</van-tag>
 								</div>
 							</div>
-							<div class="card-right">
-								10元上车
-							</div>
+							<div class="card-right">10元上车</div>
 						</div>
 						<div class="sroll-card-bottom">
 							<van-icon name="balance-list-o" size="17" />
@@ -96,9 +97,7 @@
 									<van-tag plain type="primary" class="card-tag">聚焦龙头</van-tag>
 								</div>
 							</div>
-							<div class="card-right">
-								10元上车
-							</div>
+							<div class="card-right">10元上车</div>
 						</div>
 						<div class="sroll-card-bottom">
 							<van-icon name="balance-list-o" size="17" />
@@ -120,9 +119,7 @@
 									<van-tag plain type="primary" class="card-tag">聚焦龙头</van-tag>
 								</div>
 							</div>
-							<div class="card-right">
-								10元上车
-							</div>
+							<div class="card-right">10元上车</div>
 						</div>
 						<div class="sroll-card-bottom">
 							<van-icon name="balance-list-o" size="17" />
@@ -144,9 +141,7 @@
 									<van-tag plain type="primary" class="card-tag">聚焦龙头</van-tag>
 								</div>
 							</div>
-							<div class="card-right">
-								10元上车
-							</div>
+							<div class="card-right">10元上车</div>
 						</div>
 						<div class="sroll-card-bottom">
 							<van-icon name="balance-list-o" size="17" />
@@ -168,9 +163,7 @@
 									<van-tag plain type="primary" class="card-tag">聚焦龙头</van-tag>
 								</div>
 							</div>
-							<div class="card-right">
-								10元上车
-							</div>
+							<div class="card-right">10元上车</div>
 						</div>
 						<div class="sroll-card-bottom">
 							<van-icon name="balance-list-o" size="17" />
@@ -186,215 +179,265 @@
 </template>
 
 <script>
-	import AppTabbar from '@/components/AppTabbar.vue'
-	export default {
-		data() {
-			return {
-				active: 0,
-				value: '',
-				navList: [{
-						iconText: '余额宝'
-					},
-					{
-						iconText: '理财'
-					},
-					{
-						iconText: '黄金'
-					},
-					{
-						iconText: '基金'
-					},
-					{
-						iconText: '尊享'
-					},
-					{
-						iconText: '股票'
-					},
-					{
-						iconText: '财富号'
-					},
-					{
-						iconText: '年金险'
-					},
-					{
-						iconText: '帮你投'
-					}
-				],
-				// srollNav: [{
-				// 		navTitle: '投资顺风车'
-				// 	}, {
-				// 		navTitle: '攒点金子'
-				// 	},
-				// 	{
-				// 		navTitle: '稳健理财'
-				// 	}, {
-				// 		navTitle: '精选组合'
-				// 	}, {
-				// 		navTitle: '保险优选'
-				// 	}, {
-				// 		navTitle: '进攻优选'
-				// 	}
-				// ]
-			};
-		},
-		methods: {
-			onSearch() {
-				this.$router.push('/search')
-			}
-		},
-		components:{
-			AppTabbar
+import AppTabbar from '@/components/AppTabbar.vue';
+export default {
+	data() {
+		return {
+			active: 0,
+			value: '',
+			navList: [
+				{
+					iconText: '余额宝'
+				},
+				{
+					iconText: '理财'
+				},
+				{
+					iconText: '黄金'
+				},
+				{
+					iconText: '基金'
+				},
+				{
+					iconText: '尊享'
+				},
+				{
+					iconText: '股票'
+				},
+				{
+					iconText: '财富号'
+				},
+				{
+					iconText: '年金险'
+				},
+				{
+					iconText: '帮你投'
+				}
+			],
+			noticeSwipe:[
+				{
+					stock:'A股',
+					title:'创业板指',
+					stockNum:'2536.62',
+					stockNum2:'+53.59',
+					stockNum3:'+53.59',
+					stockTag:'周末休市'
+				},{
+					stock:'A股',
+					title:'深证成指',
+					stockNum:'1302199',
+					stockNum2:'+79.04',
+					stockNum3:'+0.61%',
+					stockTag:'已收盘'
+				},{
+					stock:'A股',
+					title:'创业板指',
+					stockNum:'2536.62',
+					stockNum2:'+53.59',
+					stockNum3:'+53.59',
+					stockTag:'周末休市'
+				},{
+					stock:'A股',
+					title:'创业板指',
+					stockNum:'2536.62',
+					stockNum2:'+53.59',
+					stockNum3:'+53.59',
+					stockTag:'周末休市'
+				}
+			]
+			// srollNav: [{
+			// 		navTitle: '投资顺风车'
+			// 	}, {
+			// 		navTitle: '攒点金子'
+			// 	},
+			// 	{
+			// 		navTitle: '稳健理财'
+			// 	}, {
+			// 		navTitle: '精选组合'
+			// 	}, {
+			// 		navTitle: '保险优选'
+			// 	}, {
+			// 		navTitle: '进攻优选'
+			// 	}
+			// ]
+			
+		};
+	},
+	methods: {
+		onSearch() {
+			this.$router.push('/search');
 		}
-	};
+	},
+	components: {
+		AppTabbar
+	}
+};
 </script>
 
 <style>
-	/*********************** 顶部导航栏 start ***********************/
-	.find-nav-bg {
-		width: 100%;
-		height: 150px;
-		background-color: #188AFA;
-	}
+/*********************** 顶部导航栏 start ***********************/
+.find-nav-bg {
+	width: 100%;
+	height: 150px;
+	background-color: #188afa;
+}
 
-	.find-nav-right {
-		color: #fff;
-	}
+.find-nav-right {
+	color: #fff;
+}
 
-	.find-nav-icon {
-		margin: 20px 10px;
-		border-radius: 8px;
-		box-shadow: 0px 3px 5px 1px #F3F4F6;
-		overflow: hidden;
-	}
+.find-nav-icon {
+	margin: 20px 10px;
+	border-radius: 8px;
+	box-shadow: 0px 3px 5px 1px #f3f4f6;
+	overflow: hidden;
+}
 
-	.fund-flex {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		font-size: 14px;
-	}
+.fund-flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 14px;
+}
 
-	.fund-top {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: center;
-		padding: 12px 0;
-		font-size: 14px;
-	}
+.fund-top {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 13px;
+	
+}
 
-	.fund-bottom {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: center;
-		background-color: #F8F8F8;
-		padding: 12px 0;
-	}
+.fund-top div {
+	margin-left: 5px;
+}
 
-	.text-bold {
-		font-weight: bold;
-	}
+.fund-bottom {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #f8f8f8;
+	padding: 12px 0;
+}
 
-	.text-color {
-		color: #DB8C85;
-		font-weight: bold;
-	}
+.text-bold {
+	color: #000000;
+	font-weight: bold;
+	margin-left: 3px;
+}
 
-	.fund-bottom div {
-		color: #5CAAED;
-	}
+.text-color {
+	color: #F56040;
+	margin-right: 3px;
+}
 
-	/*********************** 顶部导航栏 end ***********************/
+.fund-bottom div {
+	color: #5caaed;
+}
 
+.notice-swipe {
+	height: 40px;
+	line-height: 40px;
+}
 
-	/*********************** 滚动导航栏 start ***********************/
-	.sroll-nav {
-		margin-top: 200px;
-	}
+.find-notice {
+	padding: 0;
+}
 
-	.sroll-card {
-		background-color: #69A2FF;
-		height: 220px;
-		width: 300px;
-		margin: 0 auto;
-		border-radius: 5px;
-		text-align: left;
-		padding: 10px;
-		margin-top: 15px;
-	}
+.text-margin {
+	margin-right: 12px;
+}
 
-	.sroll-card-title {
-		font-size: 16px;
-		color: #fff;
-		margin-bottom: 10px;
-		font-weight: bold;
-	}
+/*********************** 顶部导航栏 end ***********************/
 
-	.card {
-		background-color: #fff;
-		border-radius: 5px;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		padding-right: 10px;
-	}
+/*********************** 滚动导航栏 start ***********************/
+.sroll-nav {
+	margin-top: 200px;
+}
 
-	.card-left div:first-child {
-		color: #FCC713;
-		font-size: 16px;
-		padding: 8px;
-		border-bottom: 1px solid #F8F7F7;
-		font-weight: bold;
-	}
+.sroll-card {
+	background-color: #69a2ff;
+	height: 220px;
+	width: 300px;
+	margin: 0 auto;
+	border-radius: 5px;
+	text-align: left;
+	padding: 10px;
+	margin-top: 15px;
+}
 
-	.card-text {
-		font-size: 14px;
-		color: #000;
-		font-weight: bold;
-		padding: 8px;
-	}
+.sroll-card-title {
+	font-size: 16px;
+	color: #fff;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
 
-	.card-text-2 {
-		color: #939393;
-		padding: 0 8px 12px;
-		font-size: 12px;
-	}
+.card {
+	background-color: #fff;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding-right: 10px;
+}
 
-	.card-left div:last-child {
-		padding: 0 0 15px;
-	}
+.card-left div:first-child {
+	color: #fcc713;
+	font-size: 16px;
+	padding: 8px;
+	border-bottom: 1px solid #f8f7f7;
+	font-weight: bold;
+}
 
-	.card-tag {
-		margin-left: 8px;
-	}
+.card-text {
+	font-size: 14px;
+	color: #000;
+	font-weight: bold;
+	padding: 8px;
+}
 
-	.sroll-card-bottom {
-		background-color: #B6D6FD;
-		color: #5F8ADA;
-		border-radius: 40px;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		font-size: 12px;
-		padding: 5px 5px;
-		margin: 9px 0;
-	}
+.card-text-2 {
+	color: #939393;
+	padding: 0 8px 12px;
+	font-size: 12px;
+}
 
-	.card-right {
-		width: 100px;
-		height: 30px;
-		background-color: #2071FA;
-		color: #fff;
-		border-radius: 30px;
-		text-align: center;
-		line-height: 30px;
-		font-size: 13px;
-		margin-top: 30px;
-	}
+.card-left div:last-child {
+	padding: 0 0 15px;
+}
 
+.card-tag {
+	margin-left: 8px;
+}
 
-	/*********************** 滚动导航栏 end ***********************/
+.sroll-card-bottom {
+	background-color: #b6d6fd;
+	color: #5f8ada;
+	border-radius: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 12px;
+	padding: 5px 5px;
+	margin: 9px 0;
+}
+
+.card-right {
+	width: 100px;
+	height: 30px;
+	background-color: #2071fa;
+	color: #fff;
+	border-radius: 30px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 13px;
+	margin-top: 30px;
+}
+
+/*********************** 滚动导航栏 end ***********************/
 </style>

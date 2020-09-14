@@ -12,10 +12,17 @@
 </template>
 
 <script>
+export default {
+	data() {
+		return {
+			value:''
+		}
+	}
+};
 </script>
 
 <style>
-	.nav-icon {
-		padding-right: 5px;
-	}
+.nav-icon {
+	padding-right: 5px;
+}
 </style>
