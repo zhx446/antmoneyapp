@@ -5,10 +5,10 @@ import store from './store'
 import Vant from 'vant'
 import 'vant/lib/index.css'
 import animate from 'animate.css'
-import echarts from 'echarts'
+// import echarts from 'echarts'
 import 'amfe-flexible'
 
-Vue.prototype.$echarts = echarts
+// Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 Vue.use(Vant)
 Vue.use(animate)
