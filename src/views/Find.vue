@@ -10,7 +10,9 @@
 				</van-search>
 			</div>
 			<div class="find-nav-icon">
-				<van-grid :column-num="5" :border="false"><van-grid-item v-for="value in navList" :key="value.id" icon="photo-o" :text="value.iconText" /></van-grid>
+				<van-grid :column-num="5" :border="false">
+					<van-grid-item v-for="value in navList" :key="value.id" icon="photo-o" :text="value.iconText" />
+				</van-grid>
 			</div>
 			<div class="find-nav-icon fund-flex">
 				<div>
@@ -36,10 +38,11 @@
 				</div>
 			</div>
 		</div>
-		<!-- 滚动导航栏 -->
+		<!-- 卡片切换 -->
 		<div class="sroll-nav">
 			<div class="showBox" @touchstart="start" @touchmove="move" @touchend="end">
-				<div :class="['showItem animate__animated animate__fadeIn', 'show' + item.id]" v-for="item in list" :key="item.id" ref="showItem">
+				<div :class="['showItem animate__animated animate__fadeIn', 'show' + item.id]" v-for="item in list" :key="item.id"
+				ref="showItem">
 					<div>
 						<div class="sroll-card-title">{{ item.cardTitle }}</div>
 						<div class="card">
@@ -71,7 +74,7 @@
 				<div>最近使用</div>
 			</div>
 			<div>
-				<van-swipe :loop="false" :width="280">
+				<van-swipe :loop="false" :width="280" :show-indicators="false">
 					<van-swipe-item v-for="item in carList" :key="item.id" class="car-item">
 						<div class="car-module">
 							<div class="car-module-top">
@@ -96,26 +99,51 @@
 			<van-tabs v-model="bottomActive" color="#1975F5" :sticky="true" title-active-color="#1975F5">
 				<van-tab title="快讯">
 					<!-- 快讯 -->
-					<div class="open">
-						<van-icon name="play-circle-o" />
-						<div>开启快讯播报</div>
-					</div>
-					<van-divider :style="{ margin: '7px -10px' }" />
-					<div class="tip-text">资讯由财联社提供</div>
-					<div class="info-content" v-for="item in infoList" :key="item.id">
-						<div class="info-time">
-							<div>
-								<van-icon name="stop" color="#1975F5"/>
-								<span>{{item.infoTime}}</span>
-							</div>
-							<van-icon name="play-circle-o" size="18" color="#000" />
+					<div class="flash">
+						<div class="open">
+							<van-icon name="play-circle-o"/>
+							<div>开启快讯播报</div>
 						</div>
-						<div>
-							{{item.infoText}}
+						<van-divider :style="{ margin: '7px -10px' }" />
+						<div class="tip-text">资讯由财联社提供</div>
+						<div class="info-content" v-for="item in infoList" :key="item.id">
+							<div class="info-time">
+								<div>
+									<van-icon name="stop" color="#1975F5" />
+									<span>{{item.infoTime}}</span>
+								</div>
+								<van-icon name="play-circle-o" v-if="readIs" @click="playRead(item.infoId)" size="18" color="#000" />
+								<van-icon name="pause-circle-o" v-else @click="pauseRead" size="18" color="#1975f5" />
+							</div>
+							<div>
+								{{item.infoText}}
+							</div>
 						</div>
 					</div>
 				</van-tab>
-				<van-tab title="热点">内容 2</van-tab>
+				<van-tab title="热点">
+					<div class="hot-ad">
+						<div>财富<br />有料</div>
+						<div>
+							让天下没有难卖的房子 阿里与易居联...
+							<br />
+							第十三批卫星将于本周发射，“星链...
+						</div>
+					</div>
+					<div class="hot-info" v-for="item in hotInfo" :key="item.id">
+						<div class="hot-title">
+							{{item.hotTitle}}
+						</div>
+						<div class="hot-content">
+							<div>{{item.hotContent}}</div>
+							<van-image width="250px" radius="3px" fit="contain" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						</div>
+						<div class="hot-bottom">
+							<div>{{item.hotName}}</div>
+							<van-icon name="cross" />
+						</div>
+					</div>
+				</van-tab>
 				<van-tab title="问答">内容 3</van-tab>
 				<van-tab title="基金">内容 4</van-tab>
 				<van-tab title="行情">内容 4</van-tab>

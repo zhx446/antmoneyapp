@@ -325,7 +325,7 @@
 /*********************** 底部标签页 start ***********************/
 
 /************ 快讯 start ************/
-.bottom-tabs {
+.flash {
 	margin: 10px;
 }
 
@@ -345,6 +345,7 @@
 	font-size: 12px;
 	color: #DADADA;
 	text-align: left;
+	margin-bottom: 5px;
 }
 
 .info-content {
@@ -364,6 +365,10 @@
 	margin: 18px 0 8px;
 }
 
+.info-time div span {
+	margin-left: 10px;
+}
+
 .info-time div:first-child {
 	margin-left: -17px;
 	z-index: 1;
@@ -375,5 +380,62 @@
 }
 
 /************ 快讯 end ************/
+
+/************ 热点 start ************/
+.hot-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: left;
+	border-bottom: 8px solid #F5F5F5;
+}
+
+.hot-title {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 15px 10px;
+}
+
+.hot-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	font-size: 15px;
+	margin: 0 10px;
+}
+
+.hot-content div:first-child {
+	margin-right: 10px;
+}
+
+.hot-bottom {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 13px;
+	color: #B2B2B2;
+	margin: 20px 10px;
+}
+
+.hot-ad {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-size: 15px;
+	background-color: #E4EEFF;
+	border-radius: 10px;
+	padding: 15px;
+	margin: 15px 10px 8px;
+}
+
+.hot-ad div:first-child {
+	color: #1975F5;
+	font-weight: bold;
+	border-right: 1px solid #ccc;
+	padding-right: 18px;
+}
+
+/************ 热点 end ************/
 
 /*********************** 底部标签页 end ***********************/
