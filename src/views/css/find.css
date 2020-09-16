@@ -1,0 +1,379 @@
+/*********************** 顶部导航栏 start ***********************/
+.find-nav-bg {
+	width: 100%;
+	height: 150px;
+	background-color: #188afa;
+}
+
+.find-nav-right {
+	color: #fff;
+}
+
+.find-nav-icon {
+	margin: 20px 10px;
+	border-radius: 8px;
+	box-shadow: 0px 3px 5px 1px #f3f4f6;
+	overflow: hidden;
+}
+
+.fund-flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 14px;
+}
+
+.fund-top {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 13px;
+}
+
+.fund-top div {
+	margin-left: 5px;
+}
+
+.fund-bottom {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #f8f8f8;
+	padding: 12px 0;
+}
+
+.text-bold {
+	color: #000000;
+	font-weight: bold;
+	margin-left: 3px;
+}
+
+.text-color {
+	color: #f56040;
+	margin-right: 3px;
+}
+
+.fund-bottom div {
+	color: #5caaed;
+}
+
+.notice-swipe {
+	height: 40px;
+	line-height: 40px;
+}
+
+.find-notice {
+	padding: 0;
+}
+
+.text-margin {
+	margin-right: 12px;
+}
+
+/*********************** 顶部导航栏 end ***********************/
+
+/*********************** 滚动导航栏 start ***********************/
+.sroll-nav {
+	margin-top: 200px;
+}
+
+.sroll-card {
+	background-color: #69a2ff;
+	height: 220px;
+	width: 300px;
+	margin: 0 auto;
+	border-radius: 5px;
+	text-align: left;
+	padding: 10px;
+	margin-top: 15px;
+}
+
+.sroll-card-title {
+	font-size: 16px;
+	color: #fff;
+	margin-bottom: 10px;
+	font-weight: bold;
+	text-align: left;
+	padding-left: 13px;
+	padding-top: 5px;
+}
+
+.card {
+	background-color: #fff;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding-right: 10px;
+	width: 265px;
+	margin: 0 auto;
+}
+
+.card-left div:first-child {
+	color: #fcc713;
+	font-size: 16px;
+	padding: 8px;
+	border-bottom: 1px solid #f8f7f7;
+	font-weight: bold;
+}
+
+.card-text {
+	font-size: 14px;
+	color: #000;
+	font-weight: bold;
+	padding: 8px;
+}
+
+.card-text-2 {
+	color: #939393;
+	padding: 0 8px 12px;
+	font-size: 12px;
+}
+
+.card-left div:last-child {
+	padding: 0 0 15px;
+}
+
+.card-tag {
+	margin-left: 8px;
+}
+
+.sroll-card-bottom {
+	background-color: #b6d6fd;
+	color: #5f8ada;
+	border-radius: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 12px;
+	padding: 5px 5px;
+	margin: 8px 14px;
+}
+
+.card-right {
+	width: 100px;
+	height: 30px;
+	background-color: #2071fa;
+	color: #fff;
+	border-radius: 30px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 13px;
+	margin-top: 30px;
+}
+
+/*********************** 滚动导航栏 end ***********************/
+
+/*********************** 滑动卡片 start ***********************/
+.test {
+	margin-top: 100px;
+	width: 300px;
+	height: 180px;
+	background: antiquewhite;
+}
+
+.showBox {
+	position: relative;
+	margin-top: 30px;
+	width: 100%;
+	height: 180px;
+}
+
+.showItem {
+	position: absolute;
+	width: 300px;
+	margin-left: -150px;
+	border-radius: 5px;
+	height: 225px;
+	width: 300px;
+	text-align: left;
+	margin-top: 15px;
+}
+
+.showItem:nth-child(1) {
+	left: 50%;
+	z-index: 6;
+}
+
+.show1 {
+	background-color: #69a2ff;
+}
+
+.showItem:nth-child(2) {
+	z-index: 5;
+	left: calc(50% + 10px);
+	transform: scale(0.98);
+}
+
+.show2 {
+	background: antiquewhite;
+}
+
+.showItem:nth-child(3) {
+	z-index: 4;
+	left: calc(50% + 20px);
+	transform: scale(0.96);
+}
+
+.show3 {
+	background: aquamarine;
+}
+
+.showItem:nth-child(4) {
+	z-index: 3;
+	left: calc(50% + 30px);
+	transform: scale(0.94);
+}
+
+.show4 {
+	background: cadetblue;
+}
+
+/*********************** 滑动卡片 end ***********************/
+
+/*********************** 财富直通车 start ***********************/
+.money-car {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 10px;
+}
+
+.car-top {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-top: 80px;
+	padding-bottom: 12px;
+}
+
+.car-top div:first-child {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.car-top div:last-child {
+	font-size: 14px;
+	color: #ccc;
+}
+
+.car-module {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: left;
+	background-color: #EDF6FC;
+	border-radius: 8px;
+	padding: 10px;
+}
+
+.car-module-top {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-size: 14px;
+}
+
+.car-center {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-size: 16px;
+	font-weight: bold;
+	padding-top: 7px;
+}
+
+.car-center-left {
+	width: 155px;
+}
+
+.car-center-right {
+	padding-right: 16px;
+}
+
+.car-center-left div:last-child {
+	font-size: 13px;
+	color: #B4BDC4;
+	font-weight: 500;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+.car-btn {
+	width: 140px;
+	height: 30px;
+	font-size: 15px;
+	border-radius: 30px;
+	text-align: center;
+	line-height: 30px;
+	color: #fff;
+	background-color: #1676FE;
+}
+
+.car-item {
+	margin-right: 15px;
+}
+
+
+
+/*********************** 财富直通车 end ***********************/
+
+/*********************** 底部标签页 start ***********************/
+
+/************ 快讯 start ************/
+.bottom-tabs {
+	margin: 10px;
+}
+
+.open {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 10px 0;
+}
+
+.open div:last-child {
+	font-size: 13px;
+	margin-left: 10px;
+}
+
+.tip-text {
+	font-size: 12px;
+	color: #DADADA;
+	text-align: left;
+}
+
+.info-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-left: 1px solid #ccc;
+	padding-left: 10px;
+}
+
+.info-time {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-size: 13px;
+	color: #D0D0D0;
+	margin: 18px 0 8px;
+}
+
+.info-time div:first-child {
+	margin-left: -17px;
+	z-index: 1;
+}
+
+.info-content div:last-child {
+	font-size: 16px;
+	text-align: left;
+}
+
+/************ 快讯 end ************/
+
+/*********************** 底部标签页 end ***********************/

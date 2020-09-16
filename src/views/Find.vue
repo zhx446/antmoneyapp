@@ -10,9 +10,7 @@
 				</van-search>
 			</div>
 			<div class="find-nav-icon">
-				<van-grid :column-num="5" :border="false">
-					<van-grid-item v-for="value in navList" :key="value.id" icon="photo-o" :text="value.iconText" />
-				</van-grid>
+				<van-grid :column-num="5" :border="false"><van-grid-item v-for="value in navList" :key="value.id" icon="photo-o" :text="value.iconText" /></van-grid>
 			</div>
 			<div class="find-nav-icon fund-flex">
 				<div>
@@ -41,8 +39,7 @@
 		<!-- 滚动导航栏 -->
 		<div class="sroll-nav">
 			<div class="showBox" @touchstart="start" @touchmove="move" @touchend="end">
-				<div :class="['showItem animate__animated animate__fadeIn', 'show' + item.id]" v-for="item in list" :key="item.id"
-				ref="showItem">
+				<div :class="['showItem animate__animated animate__fadeIn', 'show' + item.id]" v-for="item in list" :key="item.id" ref="showItem">
 					<div>
 						<div class="sroll-card-title">{{ item.cardTitle }}</div>
 						<div class="card">
@@ -74,503 +71,58 @@
 				<div>最近使用</div>
 			</div>
 			<div>
-				<van-swipe :loop="false" :width="300">
-					<van-swipe-item v-for="item in carList" :key="item.id">
+				<van-swipe :loop="false" :width="280">
+					<van-swipe-item v-for="item in carList" :key="item.id" class="car-item">
 						<div class="car-module">
 							<div class="car-module-top">
-								<div>帮你投</div>
-								<van-icon name="arrow" color="#B0BAC1"/>
+								<div>{{ item.carTitle }}</div>
+								<van-icon name="arrow" color="#B0BAC1" />
 							</div>
 							<div class="car-center">
 								<div class="car-center-left">
-									<div>人人可享的顶级投顾服务来了</div>
-									<div>省心理财交给我</div>
+									<div>{{ item.carText }}</div>
+									<div>{{ item.carText2 }}</div>
 								</div>
 								<van-image class="car-center-right" width="70px" height="70px" fit="contain" src="https://img.yzcdn.cn/vant/cat.jpeg" />
 							</div>
-							<div class="car-btn">匹配专属策略</div>
+							<div class="car-btn">{{ item.carBtn }}</div>
 						</div>
 					</van-swipe-item>
-					<van-swipe-item>2</van-swipe-item>
-					<van-swipe-item>3</van-swipe-item>
-					<van-swipe-item>4</van-swipe-item>
 				</van-swipe>
 			</div>
+		</div>
+		<!-- 底部标签页 -->
+		<div class="bottom-tabs">
+			<van-tabs v-model="bottomActive" color="#1975F5" :sticky="true" title-active-color="#1975F5">
+				<van-tab title="快讯">
+					<!-- 快讯 -->
+					<div class="open">
+						<van-icon name="play-circle-o" />
+						<div>开启快讯播报</div>
+					</div>
+					<van-divider :style="{ margin: '7px -10px' }" />
+					<div class="tip-text">资讯由财联社提供</div>
+					<div class="info-content" v-for="item in infoList" :key="item.id">
+						<div class="info-time">
+							<div>
+								<van-icon name="stop" color="#1975F5"/>
+								<span>{{item.infoTime}}</span>
+							</div>
+							<van-icon name="play-circle-o" size="18" color="#000" />
+						</div>
+						<div>
+							{{item.infoText}}
+						</div>
+					</div>
+				</van-tab>
+				<van-tab title="热点">内容 2</van-tab>
+				<van-tab title="问答">内容 3</van-tab>
+				<van-tab title="基金">内容 4</van-tab>
+				<van-tab title="行情">内容 4</van-tab>
+			</van-tabs>
 		</div>
 		<app-tabbar></app-tabbar>
 	</div>
 </template>
-
-<script>
-	import AppTabbar from '@/components/AppTabbar.vue';
-	export default {
-		data() {
-			return {
-				active: 0,
-				value: '',
-				navList: [{
-						iconText: '余额宝'
-					},
-					{
-						iconText: '理财'
-					},
-					{
-						iconText: '黄金'
-					},
-					{
-						iconText: '基金'
-					},
-					{
-						iconText: '尊享'
-					},
-					{
-						iconText: '股票'
-					},
-					{
-						iconText: '财富号'
-					},
-					{
-						iconText: '年金险'
-					},
-					{
-						iconText: '帮你投'
-					}
-				],
-				noticeSwipe: [{
-						stock: 'A股',
-						title: '创业板指',
-						stockNum: '2536.62',
-						stockNum2: '+53.59',
-						stockNum3: '+53.59',
-						stockTag: '周末休市'
-					},
-					{
-						stock: 'A股',
-						title: '深证成指',
-						stockNum: '1302199',
-						stockNum2: '+79.04',
-						stockNum3: '+0.61%',
-						stockTag: '已收盘'
-					},
-					{
-						stock: 'A股',
-						title: '创业板指',
-						stockNum: '2536.62',
-						stockNum2: '+53.59',
-						stockNum3: '+53.59',
-						stockTag: '周末休市'
-					},
-					{
-						stock: 'A股',
-						title: '创业板指',
-						stockNum: '2536.62',
-						stockNum2: '+53.59',
-						stockNum3: '+53.59',
-						stockTag: '周末休市'
-					}
-				],
-				list: [{
-						id: 1,
-						cardTitle: '内需消费',
-						cardLeftTitle: '投资潜力',
-						bottomText: '富国消费主题混合',
-						conText: '投资机会，就在你身边'
-					},
-					{
-						id: 2,
-						cardTitle: '黄金',
-						cardLeftTitle: '超值黄金',
-						bottomText: '华安黄金',
-						conText: '1元就能买黄金'
-					},
-					{
-						id: 3,
-						cardTitle: '投资组合',
-						cardLeftTitle: '零钱佳',
-						bottomText: '富国消费主题混合',
-						conText: '余额理财新选择'
-					},
-					{
-						id: 4,
-						cardTitle: '业绩优异',
-						cardLeftTitle: '景顺长城优选混合',
-						bottomText: '爆款老基10尝鲜',
-						conText: '近三年涨幅+58.10%'
-					}
-				],
-				clientX: 0,
-				curIndex: 0,
-				carList:[{
-					
-				}]
-			};
-		},
-		methods: {
-			onSearch() {
-				this.$router.push('/search');
-			},
-
-			start(event) {
-				this.clientX = event.touches[0].clientX;
-			},
-			move() {},
-			end(event) {
-				console.log(event);
-				const endX = event.changedTouches[0].clientX;
-				// console.log('结束时的X坐标：'+endX+'，开始时的坐标：'+this.clientX)
-				// 开始时坐标超过结束时20以上 向左滑动
-				if (this.clientX - endX > 20) {
-					this.toLeft();
-				}
-				// 结束时坐标超过开始时20以上 向右滑动
-				else if (endX - this.clientX > 20) {
-					this.toRight();
-				}
-			},
-			// 左滑事件
-			toLeft() {
-				const beforeIndex = this.curIndex == 0 ? 3 : this.curIndex - 1;
-				const nextIndex = this.curIndex == 3 ? 0 : this.curIndex + 1;
-				this.$refs.showItem[this.curIndex].classList.add('animate__fadeOutLeft');
-				this.curIndex = nextIndex;
-				console.log('向左滑动事件');
-				// 把第一项存起来
-				const firstItem = this.list[0];
-				// 删除第一项
-				this.list.splice(0, 1);
-				// 把删掉的第一项加在最后一项
-				this.$set(this.list, this.list.length, firstItem);
-				// 异步删除slideOutLeft类
-				setTimeout(() => {
-					this.$refs.showItem[beforeIndex].classList.remove('animate__fadeOutLeft');
-				}, 100);
-			},
-			// 右滑事件
-			toRight() {
-				console.log('向右滑动事件');
-			}
-		},
-		components: {
-			AppTabbar
-		}
-	};
-</script>
-
-<style>
-	/*********************** 顶部导航栏 start ***********************/
-	.find-nav-bg {
-		width: 100%;
-		height: 150px;
-		background-color: #188afa;
-	}
-
-	.find-nav-right {
-		color: #fff;
-	}
-
-	.find-nav-icon {
-		margin: 20px 10px;
-		border-radius: 8px;
-		box-shadow: 0px 3px 5px 1px #f3f4f6;
-		overflow: hidden;
-	}
-
-	.fund-flex {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		font-size: 14px;
-	}
-
-	.fund-top {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		font-size: 13px;
-	}
-
-	.fund-top div {
-		margin-left: 5px;
-	}
-
-	.fund-bottom {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: center;
-		background-color: #f8f8f8;
-		padding: 12px 0;
-	}
-
-	.text-bold {
-		color: #000000;
-		font-weight: bold;
-		margin-left: 3px;
-	}
-
-	.text-color {
-		color: #f56040;
-		margin-right: 3px;
-	}
-
-	.fund-bottom div {
-		color: #5caaed;
-	}
-
-	.notice-swipe {
-		height: 40px;
-		line-height: 40px;
-	}
-
-	.find-notice {
-		padding: 0;
-	}
-
-	.text-margin {
-		margin-right: 12px;
-	}
-
-	/*********************** 顶部导航栏 end ***********************/
-
-	/*********************** 滚动导航栏 start ***********************/
-	.sroll-nav {
-		margin-top: 200px;
-	}
-
-	.sroll-card {
-		background-color: #69a2ff;
-		height: 220px;
-		width: 300px;
-		margin: 0 auto;
-		border-radius: 5px;
-		text-align: left;
-		padding: 10px;
-		margin-top: 15px;
-	}
-
-	.sroll-card-title {
-		font-size: 16px;
-		color: #fff;
-		margin-bottom: 10px;
-		font-weight: bold;
-		text-align: left;
-		padding-left: 13px;
-		padding-top: 5px;
-	}
-
-	.card {
-		background-color: #fff;
-		border-radius: 5px;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		padding-right: 10px;
-		width: 265px;
-		margin: 0 auto;
-	}
-
-	.card-left div:first-child {
-		color: #fcc713;
-		font-size: 16px;
-		padding: 8px;
-		border-bottom: 1px solid #f8f7f7;
-		font-weight: bold;
-	}
-
-	.card-text {
-		font-size: 14px;
-		color: #000;
-		font-weight: bold;
-		padding: 8px;
-	}
-
-	.card-text-2 {
-		color: #939393;
-		padding: 0 8px 12px;
-		font-size: 12px;
-	}
-
-	.card-left div:last-child {
-		padding: 0 0 15px;
-	}
-
-	.card-tag {
-		margin-left: 8px;
-	}
-
-	.sroll-card-bottom {
-		background-color: #b6d6fd;
-		color: #5f8ada;
-		border-radius: 40px;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		font-size: 12px;
-		padding: 5px 5px;
-		margin: 8px 14px;
-	}
-
-	.card-right {
-		width: 100px;
-		height: 30px;
-		background-color: #2071fa;
-		color: #fff;
-		border-radius: 30px;
-		text-align: center;
-		line-height: 30px;
-		font-size: 13px;
-		margin-top: 30px;
-	}
-
-	/*********************** 滚动导航栏 end ***********************/
-
-	/*********************** 滑动卡片 start ***********************/
-	.test {
-		margin-top: 100px;
-		width: 300px;
-		height: 180px;
-		background: antiquewhite;
-	}
-
-	.showBox {
-		position: relative;
-		margin-top: 30px;
-		width: 100%;
-		height: 180px;
-	}
-
-	.showItem {
-		position: absolute;
-		width: 300px;
-		margin-left: -150px;
-		border-radius: 5px;
-		height: 225px;
-		width: 300px;
-		text-align: left;
-		margin-top: 15px;
-	}
-
-	.showItem:nth-child(1) {
-		left: 50%;
-		z-index: 6;
-	}
-
-	.show1 {
-		background-color: #69a2ff;
-	}
-
-	.showItem:nth-child(2) {
-		z-index: 5;
-		left: calc(50% + 10px);
-		transform: scale(0.98);
-	}
-
-	.show2 {
-		background: antiquewhite;
-	}
-
-	.showItem:nth-child(3) {
-		z-index: 4;
-		left: calc(50% + 20px);
-		transform: scale(0.96);
-	}
-
-	.show3 {
-		background: aquamarine;
-	}
-
-	.showItem:nth-child(4) {
-		z-index: 3;
-		left: calc(50% + 30px);
-		transform: scale(0.94);
-	}
-
-	.show4 {
-		background: cadetblue;
-	}
-
-	/*********************** 滑动卡片 end ***********************/
-
-	/*********************** 财富直通车 start ***********************/
-	.money-car {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding: 0 10px;
-	}
-
-	.car-top {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		padding-top: 80px;
-	}
-
-	.car-top div:first-child {
-		font-size: 16px;
-		font-weight: bold;
-	}
-
-	.car-top div:last-child {
-		font-size: 14px;
-		color: #ccc;
-	}
-
-	.car-module {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		text-align: left;
-		background-color: #EDF6FC;
-		border-radius: 8px;
-		padding: 10px;
-	}
-
-	.car-module-top {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		font-size: 14px;
-	}
-
-	.car-center {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		font-size: 16px;
-		font-weight: bold;
-		padding-top: 7px;
-	}
-	
-	.car-center-left {
-		width: 155px;
-	}
-	
-	.car-center-right {
-		padding-right: 16px;
-	}
-	
-	.car-center-left div:last-child {
-		font-size: 13px;
-		color: #B4BDC4;
-		font-weight: 500;
-		padding-top: 5px;
-		padding-bottom: 10px;
-	}
-	
-	.car-btn {
-		width: 140px;
-		height: 30px;
-		font-size: 15px;
-		border-radius: 30px;
-		text-align: center;
-		line-height: 30px;
-		color: #fff;
-		background-color: #1676FE;
-	}
-
-	/*********************** 财富直通车 end ***********************/
-</style>
+<script src="./js/find.js"></script>
+<style src="./css/find.css"></style>
