@@ -107,15 +107,16 @@
 						<van-divider :style="{ margin: '7px -10px' }" />
 						<div class="tip-text">资讯由财联社提供</div>
 						<div class="info-content" v-for="item in infoList" :key="item.id">
-							<div class="info-time">
+							<div class="info-time" >
 								<div>
 									<van-icon name="stop" color="#1975F5" />
-									<span>{{item.infoTime}}</span>
+									<span ref="infoTimeColor">{{item.infoTime}}</span>
 								</div>
-								<van-icon name="play-circle-o" v-if="readIs" @click="playRead(item.infoId)" size="18" color="#000" />
-								<van-icon name="pause-circle-o" v-else @click="pauseRead" size="18" color="#1975f5" />
+								<van-icon name="play-circle-o" v-if="item.readIs" @click="playRead(item.infoId)" size="18" color="#000" />
+								<van-icon name="pause-circle-o" v-else @click="pauseRead(item.infoId)" size="18" color="#1975f5" />
 							</div>
-							<div>
+							<!-- ref="属性名" 获取这个div的内容 节点-->
+							<div ref="infoTextDiv">
 								{{item.infoText}}
 							</div>
 						</div>
@@ -152,5 +153,5 @@
 		<app-tabbar></app-tabbar>
 	</div>
 </template>
-<script src="./js/find.js"></script>
+<script src="../js/find.js"></script>
 <style src="./css/find.css"></style>

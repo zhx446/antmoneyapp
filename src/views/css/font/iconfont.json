@@ -1,0 +1,37 @@
+{
+  "id": "2074123",
+  "name": "antapp",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3306219",
+      "name": "发现",
+      "font_class": "faxian",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "7428491",
+      "name": "社区",
+      "font_class": "huabanfuben",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "8353188",
+      "name": "资产",
+      "font_class": "zichan",
+      "unicode": "e6cb",
+      "unicode_decimal": 59083
+    },
+    {
+      "icon_id": "15112687",
+      "name": "自选",
+      "font_class": "zixuan",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    }
+  ]
+}
