@@ -7,7 +7,7 @@ import 'vant/lib/index.css'
 import animate from 'animate.css'
 // import echarts from 'echarts'
 import 'amfe-flexible'
-import './views/css/font/iconfont.css'
+import './css/font/iconfont.css'
 
 // Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false

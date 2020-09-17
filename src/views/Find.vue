@@ -154,4 +154,4 @@
 	</div>
 </template>
 <script src="../js/find.js"></script>
-<style src="./css/find.css"></style>
+<style src="../css/find.css"></style>
