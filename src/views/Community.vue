@@ -31,19 +31,21 @@
 							</div>
 							<div class="attention">+关注</div>
 						</div>
-						<div class="article-title">{{ item.articleTitle }}</div>
-						<div class="article-content">
-							<div class="article-content-text">{{ item.contentText }}</div>
-							<van-image width="180px" height="67px" fit="contain" src="https://img.yzcdn.cn/vant/cat.jpeg" />
-						</div>
-						<div class="article-info">
-							<div>{{ item.articleTime }}</div>
-							<div>
-								<van-icon name="ellipsis" color="#ADADAD" size="large" />
-								<van-icon name="good-job-o" color="#505050" size="large" />
-								{{ item.likeNum }}
-								<van-icon name="chat-o" color="#505050" size="large" />
-								{{ item.commentNum }}
+						<div @click="toArticleDetail">
+							<div class="article-title">{{ item.articleTitle }}</div>
+							<div class="article-content">
+								<div class="article-content-text">{{ item.contentText }}</div>
+								<van-image width="180px" height="67px" fit="contain" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+							</div>
+							<div class="article-info">
+								<div>{{ item.articleTime }}</div>
+								<div>
+									<van-icon name="ellipsis" color="#ADADAD" size="large" />
+									<van-icon name="good-job-o" color="#505050" size="large" />
+									{{ item.likeNum }}
+									<van-icon name="chat-o" color="#505050" size="large" />
+									{{ item.commentNum }}
+								</div>
 							</div>
 						</div>
 					</div>
@@ -156,6 +158,11 @@
 		},
 		components: {
 			AppTabbar
+		},
+		methods: {
+			toArticleDetail () {
+				this.$router.push('/articledetail');
+			}
 		}
 	};
 </script>
