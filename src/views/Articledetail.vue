@@ -54,59 +54,66 @@
 				</div>
 			</div>
 		</div>
-		<van-search class="comment-search" v-model="value" placeholder="评论..." show-action action-text="发送" left-icon="comment-o" background="#F3F3F5">
+		<van-search class="comment-search" v-model="value" placeholder="评论..." @search="onSend" show-action action-text="发送"
+		left-icon="comment-o" background="#F3F3F5">
 			<template #left-icon>
-				<van-icon name="comment-o" color="#C8C9CF"/>
+				<van-icon name="comment-o" color="#C8C9CF" />
+			</template>
+			<template #action>
+				<div @click="onSend">发送</div>
 			</template>
 		</van-search>
 	</div>
 </template>
 
 <script>
-export default {
-	data() {
-		return {
-			value: '',
-			commentList: [
-				{
-					userName: '暗箱操作',
-					commentMian: '88888888888888',
-					commentTime: '2分钟前',
-					// require() 获取本地图片
-					userImg: require('../assets/article1.png')
-				},
-				{
-					userName: '暗箱操作',
-					commentMian: '88888888888888',
-					commentTime: '2分钟前',
-					userImg: require('../assets/article1.png')
-				},
-				{
-					userName: '暗箱操作',
-					commentMian: '88888888888888',
-					commentTime: '2分钟前',
-					userImg: require('../assets/article1.png')
-				},
-				{
-					userName: '暗箱操作',
-					commentMian: '88888888888888',
-					commentTime: '2分钟前',
-					userImg: require('../assets/article1.png')
-				},
-				{
-					userName: '暗箱操作',
-					commentMian: '88888888888888',
-					commentTime: '2分钟前',
-					userImg: require('../assets/article1.png')
-				}
-			]
-		};
-	},
-	methods: {
-		toBack() {
-			this.$router.push('/community');
+	export default {
+		data() {
+			return {
+				value: '',
+				commentList: [{
+						userName: '暗箱操作',
+						commentMian: '88888888888888',
+						commentTime: '2分钟前',
+						// require() 获取本地图片
+						userImg: require('../assets/article1.png')
+					},
+					{
+						userName: '暗箱操作',
+						commentMian: '88888888888888',
+						commentTime: '2分钟前',
+						userImg: require('../assets/article1.png')
+					},
+					{
+						userName: '暗箱操作',
+						commentMian: '88888888888888',
+						commentTime: '2分钟前',
+						userImg: require('../assets/article1.png')
+					},
+					{
+						userName: '暗箱操作',
+						commentMian: '88888888888888',
+						commentTime: '2分钟前',
+						userImg: require('../assets/article1.png')
+					},
+					{
+						userName: '暗箱操作',
+						commentMian: '88888888888888',
+						commentTime: '2分钟前',
+						userImg: require('../assets/article1.png')
+					}
+				]
+			};
+		},
+		methods: {
+			toBack() {
+				this.$router.push('/community');
+			},
+			onSend() {
+				this.commentList.push({userName: '周海欣', commentMian: this.value,commentTime:'刚刚',userImg:require('../assets/article1.png')});
+				this.value = '';
+			}
 		}
-	}
-};
+	};
 </script>
 <style src="../css/articledetail.css"></style>

@@ -251,6 +251,14 @@ export default {
 				this.$refs['infoTextDiv'][infoId].style='background: #FFFAE1;padding: 6px;';
 				this.$refs['infoTimeColor'][infoId].style='color:#1975F5';
 			}
+			
+			if(this.infoList[infoId].readIs == false) {
+				// 恢复暂停的语音 resume() 
+				synth.resume(msg);
+				this.$refs['infoTextDiv'][infoId].style='background: #FFFAE1;padding: 6px;';
+				this.$refs['infoTimeColor'][infoId].style='color:#1975F5';
+				console.log('播放2')
+			}
 			console.log(msg);
 			this.speech = msg;
 			this.speechSynth = synth;
@@ -267,16 +275,7 @@ export default {
 				this.$refs['infoTimeColor'][pauseId].style='color: #D0D0D0;';
 				console.log('暂停')
 			}
-			if(this.infoList[pauseId].readIs == false) {
-				// 恢复暂停的语音 resume() 
-				this.speechSynth.resume(this.speech);
-				this.$refs['infoTextDiv'][pauseId].style='background: #FFFAE1;padding: 6px;';
-				this.$refs['infoTimeColor'][pauseId].style='color:#1975F5';
-				console.log('播放2')
-			}
-			
 		}
-
 	},
 	components: {
 		AppTabbar
