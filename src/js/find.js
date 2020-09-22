@@ -183,17 +183,29 @@ export default {
 				hotContentImg: require('../assets/article7.jpg')
 			}],
 			speechSynth: {},
-			speech: {}
+			speech: {},
+			show: false,
+			actions: [{
+				name: '不感兴趣'
+			}],
 		};
 	},
 	methods: {
+		// 显示弹出层
+		deleteHot() {
+			this.show = true;
+		},
+		// 清除文章
+		deleteCross(crossId) {
+			this.hotInfo.splice(crossId, 1);
+		},
 		onSearch() {
 			this.$router.push('/search');
 		},
 		toDetail() {
 			this.$router.push('/articledetail');
 		},
-
+		
 		start(event) {
 			this.clientX = event.touches[0].clientX;
 		},

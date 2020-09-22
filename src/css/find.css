@@ -454,6 +454,10 @@
 	padding-right: 18px;
 }
 
+.van-overlay {
+	background-color: rgba(0, 0, 0, .1)!important;
+}
+
 /************ 热点 end ************/
 
 /*********************** 底部标签页 end ***********************/

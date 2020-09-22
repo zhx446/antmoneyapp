@@ -32,15 +32,15 @@
 					<div>南方中证全指证券公司 ETF 联接 C (004070)招商中证白酒指数分级(161725)诺安成长混合(320007）</div>
 				</div>
 				<div class="detail-comment">
-					<div class="comment-title">全部评论</div>
-					<div class="comment-content" v-for="item in commentList" :key="item.id">
+					<div class="comment-title">全部评论（{{commentNum}}）</div>
+					<div class="comment-content" v-for="(item,index) in commentList" :key="item.id">
 						<img :src="item.userImg" width="35px" height="35px" />
 						<div class="comment-content-right">
 							<div class="username">
 								<div>{{ item.userName }}</div>
 								<div>
-									0
-									<van-icon name="good-job-o" />
+									{{$store.state.goodNum}}
+									<van-icon name="good-job-o" @click="addGoodNum(index)" />
 								</div>
 							</div>
 							<div class="comment-mian">{{ item.commentMian }}</div>
@@ -72,6 +72,7 @@
 			return {
 				value: '',
 				commentList: [{
+						commentId: 0,
 						userName: '暗箱操作',
 						commentMian: '88888888888888',
 						commentTime: '2分钟前',
@@ -79,30 +80,21 @@
 						userImg: require('../assets/article1.png')
 					},
 					{
+						commentId: 1,
 						userName: '暗箱操作',
 						commentMian: '88888888888888',
 						commentTime: '2分钟前',
 						userImg: require('../assets/article1.png')
 					},
 					{
-						userName: '暗箱操作',
-						commentMian: '88888888888888',
-						commentTime: '2分钟前',
-						userImg: require('../assets/article1.png')
-					},
-					{
-						userName: '暗箱操作',
-						commentMian: '88888888888888',
-						commentTime: '2分钟前',
-						userImg: require('../assets/article1.png')
-					},
-					{
+						commentId: 2,
 						userName: '暗箱操作',
 						commentMian: '88888888888888',
 						commentTime: '2分钟前',
 						userImg: require('../assets/article1.png')
 					}
-				]
+				],
+				commentNum: 0
 			};
 		},
 		methods: {
@@ -110,10 +102,24 @@
 				this.$router.go(-1);
 			},
 			onSend() {
-				this.commentList.push({userName: '周海欣', commentMian: this.value,commentTime:'刚刚',userImg:require('../assets/article1.png')});
+				this.commentList.push({
+					userName: '周海欣',
+					commentMian: this.value,
+					commentTime: '刚刚',
+					userImg: require('../assets/article1.png')
+				});
 				this.value = '';
+				this.commentNum = this.commentList.length;
+			},
+			addGoodNum(commentId) {
+				if(commentId == this.commentList[commentId].commentId) {
+					this.$store.commit('addGoodNum');
+				}
 			}
-		}
+		},
+		mounted() {
+			this.commentNum = this.commentList.length;
+		},
 	};
 </script>
 <style src="../css/articledetail.css" scoped></style>

@@ -107,13 +107,13 @@
 					<!-- 快讯 -->
 					<div class="flash">
 						<div class="open">
-							<van-icon name="play-circle-o"/>
+							<van-icon name="play-circle-o" />
 							<div>开启快讯播报</div>
 						</div>
 						<van-divider :style="{ margin: '7px -10px' }" />
 						<div class="tip-text">资讯由财联社提供</div>
 						<div class="info-content" v-for="item in infoList" :key="item.id">
-							<div class="info-time" >
+							<div class="info-time">
 								<div>
 									<van-icon name="stop" color="#1975F5" />
 									<span ref="infoTimeColor">{{item.infoTime}}</span>
@@ -137,17 +137,18 @@
 							第十三批卫星将于本周发射，“星链...
 						</div>
 					</div>
-					<div class="hot-info" v-for="item in hotInfo" :key="item.id" @click="toDetail">
-						<div class="hot-title">
+					<div class="hot-info" v-for="item in hotInfo" :key="item.id">
+						<div class="hot-title" @click="toDetail">
 							{{item.hotTitle}}
 						</div>
-						<div class="hot-content">
+						<div class="hot-content" @click="toDetail">
 							<div>{{item.hotContent}}</div>
 							<img width="35%" height="75px" :src="item.hotContentImg" />
 						</div>
 						<div class="hot-bottom">
 							<div>{{item.hotName}}</div>
-							<van-icon name="cross" />
+							<van-icon name="cross" @click="deleteHot" />
+							<van-action-sheet v-model="show" :actions="actions" :round="false" cancel-text="取消" close-on-click-action @select="deleteCross(item.id)"/>
 						</div>
 					</div>
 				</van-tab>
