@@ -11,7 +11,13 @@
 			</div>
 			<div class="find-nav-icon">
 				<van-grid :column-num="5" :border="false">
-					<van-grid-item v-for="value in navList" :key="value.id" icon="photo-o" :text="value.iconText" />
+					<van-grid-item v-for="value in navList" :key="value.id" :text="value.iconText">
+						<template #icon>
+							<svg class="icon" aria-hidden="true">
+								<use :xlink:href="value.navIcon"></use>
+							</svg>
+						</template>
+					</van-grid-item>
 				</van-grid>
 			</div>
 			<div class="find-nav-icon fund-flex">
@@ -86,7 +92,7 @@
 									<div>{{ item.carText }}</div>
 									<div>{{ item.carText2 }}</div>
 								</div>
-								<van-image class="car-center-right" width="70px" height="70px" fit="contain" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+								<van-image class="car-center-right" width="70px" height="70px" fit="contain" :src="require('../assets/caricon.png')" />
 							</div>
 							<div class="car-btn">{{ item.carBtn }}</div>
 						</div>
@@ -122,7 +128,7 @@
 						</div>
 					</div>
 				</van-tab>
-				<van-tab title="热点">
+				<van-tab title="热点" class="hot">
 					<div class="hot-ad">
 						<div>财富<br />有料</div>
 						<div>
@@ -131,13 +137,13 @@
 							第十三批卫星将于本周发射，“星链...
 						</div>
 					</div>
-					<div class="hot-info" v-for="item in hotInfo" :key="item.id">
+					<div class="hot-info" v-for="item in hotInfo" :key="item.id" @click="toDetail">
 						<div class="hot-title">
 							{{item.hotTitle}}
 						</div>
 						<div class="hot-content">
 							<div>{{item.hotContent}}</div>
-							<van-image width="250px" radius="3px" fit="contain" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+							<img width="35%" height="75px" :src="item.hotContentImg" />
 						</div>
 						<div class="hot-bottom">
 							<div>{{item.hotName}}</div>

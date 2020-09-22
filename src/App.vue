@@ -1,28 +1,11 @@
 <template>
 	<div id="app">
 		<div class="tab">
-			<!-- <app-tabbar></app-tabbar> -->
 		</div>
 		<router-view />
 	</div>
 </template>
-<script>
-	// import AppTabbar from '@/components/AppTabbar.vue'
-	export default {
-		
-		data() {
-			return {
-				
-			}
-		},
-		components:{
-			// AppTabbar
-		},
-		methods:{
-			
-		}
-	};
-</script>
+<script></script>
 <style>
 	#app {
 		font-family: Avenir, Helvetica, Arial, sans-serif;

@@ -59,7 +59,6 @@
 		padding-right: 10px;
 		display: flex;
 		flex-direction: row;
-		align-items: center;
 		font-size: 16px;
 	}
 

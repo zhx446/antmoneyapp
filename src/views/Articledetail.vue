@@ -107,7 +107,7 @@
 		},
 		methods: {
 			toBack() {
-				this.$router.push('/community');
+				this.$router.go(-1);
 			},
 			onSend() {
 				this.commentList.push({userName: '周海欣', commentMian: this.value,commentTime:'刚刚',userImg:require('../assets/article1.png')});
@@ -116,4 +116,4 @@
 		}
 	};
 </script>
-<style src="../css/articledetail.css"></style>
+<style src="../css/articledetail.css" scoped></style>

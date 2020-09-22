@@ -1,0 +1,72 @@
+{
+  "id": "2074123",
+  "name": "antapp",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2798806",
+      "name": "理财",
+      "font_class": "licai",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "5712915",
+      "name": "财富号",
+      "font_class": "caifuhao",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "9091931",
+      "name": "保",
+      "font_class": "bao",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "9952708",
+      "name": "余额宝",
+      "font_class": "yuebao",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "11187729",
+      "name": "钻石",
+      "font_class": "zuanshi",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "11647150",
+      "name": "股票期权:面",
+      "font_class": "opt-bulk",
+      "unicode": "e6bd",
+      "unicode_decimal": 59069
+    },
+    {
+      "icon_id": "16768598",
+      "name": "品类入口-帮你投",
+      "font_class": "pinleirukou-bangnitou",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "16768601",
+      "name": "品类入口-黄金",
+      "font_class": "pinleirukou-huangjin",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "16812625",
+      "name": "main-对冲基金",
+      "font_class": "main-duichongjijin",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    }
+  ]
+}

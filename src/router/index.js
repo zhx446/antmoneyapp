@@ -15,7 +15,7 @@ const routes = [{
 	{
 		path: '/optional', //主路由
 		name: 'Optional',
-		// redirect: "/optional/stock", //重定向到第一个子路由
+		redirect: "/optional/stock", //重定向到第一个子路由
 		component: Optional,
 		// 注意：
 		// 主路由使用"redirect"重定向到第一个子路由，实现点击父级进入第一个子路由；

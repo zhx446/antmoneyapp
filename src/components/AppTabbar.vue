@@ -4,7 +4,7 @@
 			<i class="iconfont icon-faxian"></i>
 			<div>发现</div>
 		</router-link>
-		<router-link to="/optional/stock" class="icon-tabbar">
+		<router-link to="/optional" class="icon-tabbar">
 			<i class="iconfont icon-zixuan"></i>
 			<div>自选</div>
 		</router-link>
