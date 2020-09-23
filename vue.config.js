@@ -11,6 +11,7 @@ module.exports = {
           autoprefixer(),
           pxtorem({
             rootValue: 37.5,
+			minPixelValue:1,
             propList: ['*']
           })
         ]
