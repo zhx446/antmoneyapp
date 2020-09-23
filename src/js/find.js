@@ -10,27 +10,27 @@ export default {
 				},
 				{
 					iconText: '理财',
-					navIcon: '#icon-licai'
+					navIcon: '#icon-licaiTab_pinleirukou-dingqi'
 				},
 				{
 					iconText: '黄金',
-					navIcon: '#icon-pinleirukou-huangjin'
+					navIcon: '#icon-huangjin'
 				},
 				{
 					iconText: '基金',
-					navIcon: '#icon-main-duichongjijin'
+					navIcon: '#icon-dakayunji'
 				},
 				{
 					iconText: '尊享',
-					navIcon: '#icon-zuanshi'
+					navIcon: '#icon-huangjin1'
 				},
 				{
 					iconText: '股票',
-					navIcon: '#icon-opt-bulk'
+					navIcon: '#icon-gupiao'
 				},
 				{
 					iconText: '财富号',
-					navIcon: '#icon-caifuhao'
+					navIcon: '#icon-caifu_huaban'
 				},
 				{
 					iconText: '年金险',

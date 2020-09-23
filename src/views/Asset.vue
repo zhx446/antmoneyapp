@@ -123,7 +123,7 @@
 					</van-cell>
 					<van-cell class="assets-money" :border="false">
 						<template #title>
-							<span class="access-money">1位加入保障中</span>
+							<span class="access-money">1位家人加入保障中</span>
 						</template>
 					</van-cell>
 				</van-cell-group>
@@ -132,22 +132,22 @@
 			<!-- 账单 -->
 			<div class="my-bill">
 				<van-cell-group>
-					<van-cell title="账单" size="large" icon="location-o" title-class="bill">
+					<van-cell title="账单" size="large" icon="description" title-class="bill">
 						<template #right-icon>
 							<van-icon name="arrow" color="#D3D3D3" />
 						</template>
 					</van-cell>
-					<van-cell title="银行卡" size="large" icon="location-o" title-class="bill">
+					<van-cell title="银行卡" size="large" icon="credit-pay" title-class="bill">
 						<template #right-icon>
 							<van-icon name="arrow" color="#D3D3D3" />
 						</template>
 					</van-cell>
-					<van-cell title="劵包" size="large" icon="location-o" title-class="bill">
+					<van-cell title="劵包" size="large" icon="coupon-o" title-class="bill">
 						<template #right-icon>
 							<van-icon name="arrow" color="#D3D3D3" />
 						</template>
 					</van-cell>
-					<van-cell title="活动" size="large" icon="location-o" title-class="bill">
+					<van-cell title="活动" size="large" icon="point-gift-o" title-class="bill">
 						<template #right-icon>
 							<van-icon name="arrow" color="#D3D3D3" />
 						</template>
@@ -158,7 +158,7 @@
 			<!-- 借呗 -->
 			<div class="my-borrow">
 				<van-cell-group>
-					<van-cell title="借呗" size="large" icon="location-o" title-class="bill">
+					<van-cell title="借呗" size="large" icon="balance-list-o" title-class="bill">
 						<template #right-icon>
 							<van-icon name="arrow" color="#D3D3D3" />
 						</template>

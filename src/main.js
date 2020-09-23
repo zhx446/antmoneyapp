@@ -8,7 +8,7 @@ import animate from 'animate.css'
 // import echarts from 'echarts'
 import 'amfe-flexible'
 import './css/font/iconfont.css'
-import './css/font2/iconfont.js'
+import './css/font3/iconfont.js'
 
 // Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
