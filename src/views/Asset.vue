@@ -4,15 +4,15 @@
 		<div class="user-info-top">
 			<van-row>
 				<van-col offset="18" span="6">
-					<van-icon name="service-o" color="#fff" />
-					<van-icon name="service-o" color="#fff" class="user-nav" />
+					<van-icon name="setting-o" color="#fff" @click="toSetting"/>
+					<van-icon name="volume-o" color="#fff" class="user-nav" />
 				</van-col>
 			</van-row>
 			<div class="user-content">
 				<van-cell size="large" class="user-content-top">
 					<template #title>
 						<div class="head-img">
-							<van-image class="head-pic" round width="50px" height="50px" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+							<van-image round width="50px" height="50px" :src="require('../assets/headimg.jpg')" />
 							<div class="custom-title username">
 								周海欣
 								<van-icon name="arrow" color="#D2DAE0" />
@@ -180,6 +180,11 @@
 		},
 		components:{
 			AppTabbar
+		},
+		methods: {
+			toSetting() {
+				this.$router.push('/setting');
+			}
 		}
 	}
 </script>
@@ -223,10 +228,6 @@
 		display: flex;
 		flex-direction: row;
 		align-items: flex-start;
-	}
-
-	.head-pic {
-		border: 2px solid #ccc;
 	}
 
 	.value-text {

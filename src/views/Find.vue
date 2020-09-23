@@ -3,7 +3,7 @@
 		<!-- 顶部导航栏 -->
 		<div class="find-nav-bg">
 			<div class="find-nav-search">
-				<van-search v-model="value" background="#188AFA" shape="round" show-action placeholder="我能帮你诊断风险">
+				<van-search v-model="value" background="#188AFA" shape="round" show-action placeholder="我能帮你诊断风险" @focus="onSearch">
 					<template #action>
 						<div class="find-nav-right" @click="onSearch">搜索</div>
 					</template>

@@ -1,0 +1,93 @@
+{
+  "id": "2090818",
+  "name": "app",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1439359",
+      "name": "黄金",
+      "font_class": "huangjin",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "2947554",
+      "name": "黄金",
+      "font_class": "huangjin1",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "5429574",
+      "name": "订单-短视频",
+      "font_class": "dingdan-duanshipin",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "5675451",
+      "name": "股票",
+      "font_class": "gupiao",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "7204664",
+      "name": "专栏推送",
+      "font_class": "zhuanlantuisong",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "7830426",
+      "name": "余额宝",
+      "font_class": "yuebao",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "10614797",
+      "name": "财富_画板 1",
+      "font_class": "caifu_huaban",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "11306589",
+      "name": "保",
+      "font_class": "bao",
+      "unicode": "e6db",
+      "unicode_decimal": 59099
+    },
+    {
+      "icon_id": "11721179",
+      "name": "大咖云集",
+      "font_class": "dakayunji",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "15352632",
+      "name": "查看点击",
+      "font_class": "chakandianji",
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    },
+    {
+      "icon_id": "16724705",
+      "name": "理财Tab_品类入口-定期",
+      "font_class": "licaiTab_pinleirukou-dingqi",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "16768598",
+      "name": "品类入口-帮你投",
+      "font_class": "pinleirukou-bangnitou",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    }
+  ]
+}
