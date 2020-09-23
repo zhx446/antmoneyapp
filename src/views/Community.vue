@@ -5,7 +5,7 @@
 			<div class="nav-module">
 				<van-search class="top-nav" v-model="value" show-action shape="round" background="#2671FE" placeholder="问答/看点/用户/股票/基金">
 					<template #action>
-						<van-icon name="chat-o" size="large" color="#fff" class="community-top-icon" />
+						<van-icon name="chat-o" size="25" color="#fff" class="community-top-icon" />
 					</template>
 				</van-search>
 			</div>
@@ -19,14 +19,14 @@
 				<van-grid-item icon="photo-o" text="短视频" />
 			</van-grid>
 			<!-- 标签导航 -->
-			<van-tabs v-model="articleActive" :sticky="true" offset-top="65px" title-active-color="#000" title-inactive-color="#B8B8B8"
+			<van-tabs v-model="articleActive" :sticky="true" offset-top="63px" title-active-color="#000" title-inactive-color="#B8B8B8"
 			:swipeable="true" animated color="#2671FE">
 				<!-- 热门模块 -->
 				<van-tab title="热门" title-style="font-weight:600;">
 					<div class="article-module" v-for="item in articles" :key="item.id">
 						<div class="writer-module">
 							<div class="writer-info">
-								<van-image round width="30px" height="30px" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+								<van-image round width="30px" height="30px" :src="item.headImg" />
 								<span>{{ item.writerName }}</span>
 							</div>
 							<div class="attention">+关注</div>
@@ -35,7 +35,7 @@
 							<div class="article-title">{{ item.articleTitle }}</div>
 							<div class="article-content">
 								<div class="article-content-text">{{ item.contentText }}</div>
-								<van-image width="180px" height="67px" fit="contain" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+								<van-image class="article-img" width="190px" height="55px" fit="contain" :src="item.articleImg" />
 							</div>
 							<div class="article-info">
 								<div>{{ item.articleTime }}</div>
@@ -109,25 +109,31 @@
 				value: '',
 				articleActive: 0,
 				articles: [{
-						writerName: '周海欣',
-						articleTitle: '9.8：科技和周期板块的打分贴',
-						contentText: '如预想的那样，今天还是在调整的，虽然目前看，大盘已经翻红了，貌似数据还挺不错的。',
-						articleTime: '10分钟前',
+						writerName: '养基司令',
+						headImg: require('../assets/headimg.jpg'),
+						articleTitle: '40万（含10万元收益）实盘操作',
+						contentText: '目前券商微涨0.19%，到收盘应该能喝口汤。今日高开低走，呈单边走低之势，期待的 V 型...',
+						articleImg: require('../assets/article3.png'),
+						articleTime: '1分钟前',
+						likeNum: 100,
+						commentNum: 22
+					},
+					{
+						writerName: '老杨基金说',
+						headImg: require('../assets/headimg2.jpg'),
+						articleTitle: '医药如期反弹，昨天的买入没...',
+						contentText: '先看一下关注行业指数涨跌情况：科创50领涨2.0%,和昨天的预测差不多，短期因为科创...',
+						articleImg: require('../assets/aricleimg.jpg'),
+						articleTime: '5分钟前',
 						likeNum: 1000,
 						commentNum: 222
 					},
 					{
-						writerName: '周海欣',
-						articleTitle: '9.8：科技和周期板块的打分贴',
-						contentText: '如预想的那样，今天还是在调整的，虽然目前看，大盘已经翻红了，貌似数据还挺不错的。',
-						articleTime: '10分钟前',
-						likeNum: 1000,
-						commentNum: 222
-					},
-					{
-						writerName: '周海欣',
-						articleTitle: '9.8：科技和周期板块的打分贴',
-						contentText: '如预想的那样，今天还是在调整的，虽然目前看，大盘已经翻红了，貌似数据还挺不错的。',
+						writerName: '老胡谈基',
+						headImg: require('../assets/headimg3.jpg'),
+						articleTitle: '智能选股赋能主动研究，投资“小而美”同样出彩！',
+						contentText: '动研究与智能选股两种策略相得益彰，大数据智能量化投资是否大有可为？',
+						articleImg: require('../assets/aricleimg2.jpg'),
 						articleTime: '10分钟前',
 						likeNum: 1000,
 						commentNum: 222
@@ -160,7 +166,7 @@
 			AppTabbar
 		},
 		methods: {
-			toArticleDetail () {
+			toArticleDetail() {
 				this.$router.push('/articledetail');
 			}
 		}
@@ -170,7 +176,7 @@
 <style>
 	/*********************** 搜索导航栏 start ***********************/
 	.top-nav {
-		padding-top: 15px;
+		padding-top: 10px;
 	}
 
 	.community-top-icon {
@@ -262,7 +268,7 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		margin: 8px 8px;
+		margin: 15px 8px 12px;
 	}
 
 	.article-info div:first-child {
@@ -277,7 +283,13 @@
 		align-items: center;
 		font-size: 14px;
 		color: #505050;
-		width: 30%;
+		width: 35%;
+	}
+
+	.article-img {
+		border-radius: 6px;
+		overflow: hidden;
+		margin: 0 10px;
 	}
 
 	/*********** 热门 end ***********/

@@ -8,8 +8,11 @@ export default new Vuex.Store({
 		goodNum: 0
 	},
 	mutations: {
-		addGoodNum(state) {
-			state.goodNum = 1;
+		addGoodNum(state,commentId) {
+			if(commentId.commentId == 1) {
+				state.goodNum = 1;
+			}
+			
 		}
 	},
 	actions: {},

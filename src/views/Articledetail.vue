@@ -112,9 +112,9 @@
 				this.commentNum = this.commentList.length;
 			},
 			addGoodNum(commentId) {
-				if(commentId == this.commentList[commentId].commentId) {
-					this.$store.commit('addGoodNum');
-				}
+				// if(commentId == this.commentList[commentId].commentId) {
+					this.$store.commit('addGoodNum',{commentId});
+				// }
 			}
 		},
 		mounted() {
