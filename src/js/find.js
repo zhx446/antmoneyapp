@@ -262,7 +262,8 @@ export default {
 			function handleSpeak() {
 				synth.speak(msg);
 			}
-
+			
+			// 避免重复点击
 			function throttle(fn, delay) {
 				let last = 0;
 				return function() {
@@ -273,13 +274,14 @@ export default {
 					}
 				};
 			}
+			// 点击播放显示播放按钮
 			if (this.infoList[infoId].infoId == infoId) {
 				console.log('播放')
 				this.infoList[infoId].readIs = false;
 				this.$refs['infoTextDiv'][infoId].style = 'background: #FFFAE1;padding: 6px;';
 				this.$refs['infoTimeColor'][infoId].style = 'color:#1975F5';
 			}
-
+			
 			if (this.infoList[infoId].readIs == false) {
 				// 恢复暂停的语音 resume() 
 				synth.resume(msg);
